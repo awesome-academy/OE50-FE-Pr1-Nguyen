@@ -1,0 +1,27 @@
+{
+  "name": "oe50-fe-pr1-nguyen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nguyenlee151200/OE50-FE-Pr1-Nguyen.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nguyenlee151200/OE50-FE-Pr1-Nguyen/issues"
+  },
+  "homepage": "https://github.com/nguyenlee151200/OE50-FE-Pr1-Nguyen#readme",
+  "devDependencies": {
+    "browser-sync": "^2.27.7",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-pug": "^5.0.0",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.49.9"
+  }
+}

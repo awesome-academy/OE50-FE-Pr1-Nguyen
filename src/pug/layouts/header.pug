@@ -1,0 +1,16 @@
+mixin header 
+    header.header 
+        .container 
+            .header__inner.row
+                .user.col-6
+                    label(for="user").user__icon
+                        i.fa.fa-user-circle 
+                    input.user__check#user(type="checkbox")
+                    ul.header__list 
+                        each item in headerUser
+                            li.header__item 
+                                a.header__link(href=item.href)=item.item
+                .search.col-6 
+                    input.search__input(type="text" name="" placeholder="Tim kiem o day ...")
+                    label.search__icon( for ='search')
+                        i.fa.fa-search.search__icon--small   

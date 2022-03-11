@@ -1,0 +1,66 @@
+@mixin flex($justify, $align, $direction: row, $wrap: nowrap, $gap: 0) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  @if ($direction != row) {
+    flex-direction: $direction;
+  }
+  @if ($wrap!= nowrap) {
+    flex-wrap: $wrap;
+  }
+  @if ($gap != 0) {
+    gap: $gap;
+  }
+}
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin position($position, $top: 0, $left: 0, $bottom: 0, $right: 0) {
+  position: $position;
+  top: $top;
+  left: $left;
+  @if ($bottom != 0) {
+    bottom: $bottom;
+  }
+  @if ($right != 0) {
+    right: $right;
+  }
+}
+
+@mixin absolute($args...) {
+  @include position(absolute, $args...);
+}
+
+@mixin relative($args...) {
+  @include position(relative, $args...);
+}
+
+@mixin fixed($args...) {
+  @include position(fixed, $args...);
+}
+
+$breakpoints: (
+  smallphone-and-down: '(max-width: 399px)',
+  phone-and-down: '(max-width: 575px)',
+  tablet-and-down: '(max-width: 767px)',
+  desktop-and-down: '(max-width: 991px)',
+  largedesktop-and-down: '(max-width: 1199px)',
+  extralarge-and-down: '(max-width: 1439px)',
+);
+
+@mixin respond-to($breakpoint) {
+  $raw-query: map-get($breakpoints, $breakpoint);
+  @if $raw-query {
+    $query: if(
+      type-of($raw-query) == 'string',
+      unquote($raw-query),
+      inspect($raw-query)
+    );
+    @media #{$query} {
+      @content;
+    }
+  }
+}

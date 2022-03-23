@@ -1,0 +1,31 @@
+.btn {
+  padding: 0.25rem 1.5rem;
+  text-transform: uppercase;
+  border-radius: 0;
+
+  &--black {
+    background-color: $color-black;
+    color: $color-white;
+
+    &:hover {
+      color: $color-yellow;
+    }
+  }
+
+  &--arrow {
+    @include relative;
+
+    &::after {
+      content: '';
+      @include absolute($top: -2px, $left: 100%);
+      @include size($width: 40%, $height: 55%);
+      z-index: $zindex1;
+      padding: -3.5rem;
+      border-left: 50% solid transparent;
+      border-top: 50% solid transparent;
+      border-top: 18px solid transparent;
+      border-bottom: 18px solid transparent;
+      border-left: 25px solid black;
+    }
+  }
+}

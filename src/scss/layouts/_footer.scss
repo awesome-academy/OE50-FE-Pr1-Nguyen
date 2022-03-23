@@ -1,0 +1,79 @@
+.footer {
+  padding-top: 2rem;
+  overflow-x: hidden;
+
+  &__menu {
+    padding-top: 2rem;
+    color: $color-black;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-size: $fs-lg;
+    padding-top: 0.5rem;
+    letter-spacing: 2px;
+  }
+
+  &__list {
+    padding-top: 1rem;
+  }
+
+  &__item {
+    @include flex($justify: flex-start, $align: inherit);
+    padding: 2px 0;
+  }
+
+  &__link {
+    color: $color-gray;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  &__text {
+    color: $color-black;
+
+    &--gray {
+      color: $color-gray;
+    }
+  }
+
+  &__form {
+    @include flex($justify: flex-start, $align: center);
+    width: $wf;
+  }
+
+  &__input {
+    padding: 0.35rem 1rem;
+    border-radius: 0;
+    font-style: italic;
+    width: 60%;
+    border: 1px solid $color-black;
+  }
+
+  &__icon {
+    padding: 0 0.5rem;
+  }
+
+  &__bottom {
+    border-top: 1px solid $color-gray;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+}
+
+.social {
+  @include flex($justify: center, $align: center);
+  padding-top: 1rem;
+
+  &__item {
+    padding-right: 0.75rem;
+  }
+
+  &__link {
+    color: $color-gray;
+
+    &:hover {
+      color: $color-yellow;
+    }
+  }
+}

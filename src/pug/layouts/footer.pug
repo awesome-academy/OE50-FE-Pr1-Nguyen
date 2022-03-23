@@ -1,2 +1,53 @@
 mixin footer 
     footer.footer
+        .footer__top
+            .container 
+                .footer__brands.text-center
+                    img(src='../assets/footer.png' alt ='footer brands')
+                .footer__menu.row 
+                    each item in footerMain
+                        .col-lg-2.col-6 
+                            nav
+                                h2.footer__title=item.title
+                                ul.footer__list 
+                                    each child in item.link
+                                        li.footer__item
+                                            a.footer__link= child
+                    .col-lg-4.col-md-6.col-12
+                        h2.footer__title Gửi email
+                        ul.footer__list 
+                            li.footer__item 
+                                p.footer__text.footer__text--gray Gửi email cho chúng tôi để được hỗ trợ
+                            li.footer__item 
+                                form.footer__form
+                                    input.footer__input(type='text' name="" placeholder="Enter your email")
+                                    button.btn.button.btn--black.btn--arrow(type='submit') Gửi
+                            li.footer__item
+                                ul.social 
+                                    each social in footerSocial
+                                        li.social__item 
+                                            a.social__link 
+                                                i(class= social.class)
+                    .col-lg-4.col-md-6.col-12
+                        h2.footer__title Liên hệ
+                        ul.footer__list 
+                            li.footer__item 
+                                i.fa.fa-map-marker.footer__icon
+                                p.footer__text Tầng 4, Tòa nhà Hanoi Group Số 442 Đội Cấn, <br/> P. Cống Vị, Q. Ba Đình, Hà Nội
+                            li.footer__item 
+                                i.fa.fa-phone.footer__icon 
+                                p.footer__text  (04) 66732332 - 
+                                    i.fa.fa-phone.footer__icon  (04) 66732332
+                            li.footer__item 
+                                i.fa.fa-phone.footer__icon 
+                                p.footer__text  (04) 66732332
+                                    i.fa.fa-envelope.footer__icon  
+                                    a(href="#") Support@bizweb.vn
+        .footer__bottom
+            .container 
+                .row 
+                    .col-md-4.col-sx-6.col-12.copy-right 
+                        p.footer__text.footer__text--gray © Copyright 2008-2014 DKT Technology JSC
+                    .col-md-4.offset-md-4.col-sx-6.col-12.payment 
+                        img.payment__img(src="../assets/payment.png" alt="footer-image payment")
+

@@ -18,7 +18,14 @@
   height: $height;
 }
 
-@mixin position($position, $top: 0, $left: 0, $bottom: 0, $right: 0) {
+@mixin position(
+  $position,
+  $top: 0,
+  $left: 0,
+  $bottom: 0,
+  $right: 0,
+  $zindex: null
+) {
   position: $position;
   top: $top;
   left: $left;
@@ -27,6 +34,9 @@
   }
   @if ($right != 0) {
     right: $right;
+  }
+  @if ($zindex != null) {
+    z-index: $zindex;
   }
 }
 

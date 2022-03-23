@@ -1,0 +1,18 @@
+mixin cardItem
+    each item in product
+        .product 
+            .product__img(src=item.src , alt=item.alt)
+            h2.product__title=item.title 
+            span.product__price=item.price
+            +button("Add to card")
+
+mixin cardNew(listNews)
+    each item in listNews 
+        .col-lg-4.col-md-6.col-12 
+            article.news
+                .news__img(src=item.src,alt=item.alt)
+                .news__body 
+                    .news__title=item.title 
+                    .news__author=item.author 
+                    .news__desc=item.desc 
+                    .news__more=item.more

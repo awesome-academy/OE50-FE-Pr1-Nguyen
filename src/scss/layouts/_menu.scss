@@ -1,0 +1,135 @@
+.menu {
+  background-color: $color-black;
+}
+
+.nav {
+  @include flex($justify: space-between, $align: center);
+  padding: 0.5rem 0;
+
+  &__logo {
+    @include respond-to(desktop-and-down) {
+      width: 13%;
+    }
+  }
+
+  &__menu {
+    margin: auto;
+    @include respond-to(desktop-and-down) {
+      margin: 0;
+    }
+  }
+
+  &__list {
+    @include relative;
+    @include flex($justify: center, $align: center);
+    @include respond-to(desktop-and-down) {
+      display: none;
+    }
+  }
+
+  &__item {
+    padding: 2rem;
+    @include respond-to(extralarge-and-down) {
+      padding: 0.5rem;
+    }
+  }
+
+  &__link {
+    color: $color-white;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+
+    &--black {
+      color: $color-black;
+    }
+
+    &:hover {
+      color: $color-yellow;
+    }
+  }
+
+  &__toggle {
+    display: none;
+    font-size: calc($fs-xl * 2);
+    @include respond-to(desktop-and-down) {
+      display: block;
+    }
+  }
+  &__check {
+    display: none;
+
+    &:checked ~ .nav__overlay {
+      display: block;
+    }
+
+    &:checked ~ .nav__close {
+      opacity: 1;
+    }
+
+    &:checked ~ .nav__phone {
+      transform: translateX(60%);
+      opacity: 1;
+    }
+  }
+
+  &__phone {
+    @include fixed($top: 0, $left: 0%, $zindex: 3);
+    @include size($width: 600px, $height: 100%);
+    max-width: $wf;
+    background-color: $color-white;
+    transform: translateX(300%);
+    overflow-x: hidden;
+    overflow-y: auto;
+    opacity: 0;
+    transition: all ease-in-out 0.4s;
+
+    &-list {
+      display: block;
+      padding-top: 3rem;
+      padding-left: 12px;
+    }
+
+    &-link {
+      color: $color-black;
+    }
+  }
+
+  &__overlay {
+    @include fixed($top: 0, $left: 0);
+    @include size($width: 100%);
+    background-color: rgba($color: $color-black, $alpha: 0.3);
+    display: none;
+  }
+}
+
+.submenu {
+  &__list {
+    @include flex($justify: space-around, $align: center);
+    @include absolute($top: 200%, $left: 0%, $zindex: 3);
+    @include size($width: $wf, $height: auto);
+    visibility: hidden;
+    opacity: 0;
+    background-color: $color-white;
+    transition: 0.7s;
+    padding: 2rem 0;
+    border: 1px solid $color-yellow;
+  }
+
+  &:hover .submenu__list {
+    visibility: visible;
+    opacity: 1;
+    top: 125%;
+  }
+
+  &__item {
+    padding: 0.25rem 0;
+  }
+
+  &__link {
+    font-size: $fs-base;
+  }
+
+  &__img {
+    width: 30%;
+  }
+}

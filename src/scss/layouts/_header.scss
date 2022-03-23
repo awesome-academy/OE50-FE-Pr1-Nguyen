@@ -1,0 +1,90 @@
+.header {
+  @include absolute();
+  background-color: rgba($color: $color-white, $alpha: 0.1);
+  z-index: calc($zindex1 + 1);
+  width: $wf;
+
+  &__list {
+    @include flex($justify: flex-start, $align: center, $gap: 1rem);
+    @include respond-to(desktop-and-down) {
+      display: none;
+    }
+  }
+
+  &__item {
+    @include relative;
+
+    &:not(:first-child)::after {
+      content: '';
+      @include absolute($top: 50%, $left: -12px);
+      @include size($width: 7px, $height: 1px);
+      background-color: $color-white;
+    }
+  }
+
+  &__link {
+    color: $color-white;
+    font-size: $fs-xs;
+    padding: 0 5px;
+
+    &::after {
+      content: '';
+      @include absolute($top: null, $bottom: 1px);
+      @include size($width: $wf, $height: 1px);
+      background-color: $color-yellow;
+      opacity: 0;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+
+    @include respond-to($breakpoint: extralarge-and-down) {
+      font-size: calc(($fs-xl) - ($fs-xs));
+    }
+  }
+}
+
+.user {
+  &__icon {
+    display: none;
+    @include respond-to($breakpoint: desktop-and-down) {
+      display: block;
+    }
+  }
+
+  &__check {
+    display: none;
+
+    &:checked ~ .header__list {
+      @include absolute($top: 1rem);
+      z-index: calc($zindex1 + 1);
+      display: block;
+      background-color: $color-black;
+      text-align: center;
+      width: $wf;
+    }
+  }
+}
+
+.search {
+  @include flex($justify: end, $align: center);
+
+  &__input {
+    background: transparent;
+    border: none;
+    font-size: $fs-xs;
+    font-style: italic;
+    padding-left: 10px;
+    border-left: 1px solid $color-white;
+  }
+
+  &__icon {
+    padding-left: 10px;
+    color: $color-white;
+
+    &--small {
+      transform: scale(0.8);
+    }
+  }
+}

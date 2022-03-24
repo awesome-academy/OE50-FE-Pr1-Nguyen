@@ -1,0 +1,33 @@
+mixin menu 
+    .menu 
+        .container 
+            nav.nav.nav-bar     
+                .nav__logo
+                    a.nav__link(href="") 
+                        img.logo(src="/assets/logoMenu.png" alt="")
+                .nav__menu 
+                    ul.nav__list
+                        each item in menu 
+                            li.nav__item(class = item.class) 
+                                a.nav__link=item.item
+                                if(item.hasSubmenu)
+                                    ul.submenu__list 
+                                        each child in megaMenu 
+                                            li.submenu__item 
+                                                a.nav__link.nav__link--black=child.title
+                                                ul.submenu__second 
+                                                    each link in child.item
+                                                        li.submenu__item 
+                                                            a.submenu__link=link
+                                        img.submenu__img(src='/assets/Depositphotos_3010981_original1.jpg')
+                form 
+                    label.nav__toggle(for="nav__toggle")
+                        i.fa.fa-bars
+                    input.nav__check#nav__toggle(type="checkbox")
+                    label(for="nav__toggle").nav__overlay 
+                    .nav__phone 
+                        ul.nav__list.nav__phone-list
+                            each item in menu 
+                                li.nav__item.nav__phone-item(class = item.class) 
+                                    a.nav__link.nav__phone-link=item.item
+

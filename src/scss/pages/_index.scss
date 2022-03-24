@@ -1,0 +1,33 @@
+.carousel {
+  &-caption {
+    @include absolute($top: 15%, $left: 15%, $bottom: 0, $right: 0);
+    color: rgba($color: $color-white, $alpha: 0.8);
+  }
+
+  &__desc {
+    @include absolute($top: 0, $left: 0);
+    @include respond-to(desktop-and-down) {
+      @include absolute($top: 0, $left: 15%);
+    }
+  }
+
+  &__title {
+    @include relative;
+    font-family: $ff-UTM;
+    font-size: calc(6 * 5vw);
+  }
+
+  &__subtitle {
+    @include absolute($top: 20%, $left: 55%);
+    font-family: $ff-UVF;
+    font-size: calc(6 * 1vw);
+    text-transform: capitalize;
+  }
+
+  &__txt {
+    @include absolute($top: 68%, $left: 95%);
+    font-family: $ff-Lobster;
+    font-size: calc(6 * 0.3vw);
+    width: calc($wf / 4);
+  }
+}

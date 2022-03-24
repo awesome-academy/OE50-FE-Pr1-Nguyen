@@ -1,7 +1,6 @@
 .header {
-  @include absolute();
+  @include absolute($zindex: 2);
   background-color: rgba($color: $color-white, $alpha: 0.1);
-  z-index: calc($zindex1 + 1);
   width: $wf;
 
   &__list {
@@ -57,8 +56,7 @@
     display: none;
 
     &:checked ~ .header__list {
-      @include absolute($top: 1rem);
-      z-index: calc($zindex1 + 1);
+      @include absolute($top: 1rem, $zindex: 5);
       display: block;
       background-color: $color-black;
       text-align: center;

@@ -1,5 +1,7 @@
 include ../data/data.pug
 include ../layouts/header.pug
+include ../layouts/menu.pug
+include ../components/mixins.pug
 include ../layouts/footer.pug
 
 doctype html
@@ -23,6 +25,7 @@ html(lang="en")
     body 
         +header
         block slider
+        +menu
         block content
         +footer
         script(src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js") 

@@ -1,0 +1,27 @@
+.title {
+  @include relative;
+  font-size: $fs-xl;
+  text-transform: uppercase;
+  color: $color-black;
+
+  &::after {
+    content: '';
+    @include absolute($top: 100%, $left: 0);
+    @include size($width: $wf);
+    background: url(/assets/title-dark.png) no-repeat 50% center;
+  }
+}
+
+.subtitle {
+  @include relative;
+  color: $color-black;
+  text-transform: uppercase;
+  font-size: $fs-lg;
+
+  &::after {
+    content: '';
+    @include absolute($top: 100%, $left: 0);
+    @include size($width: $wf);
+    background: url(/assets/titleleft-dark.png) no-repeat left top;
+  }
+}

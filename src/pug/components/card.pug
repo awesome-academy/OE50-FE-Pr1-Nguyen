@@ -1,16 +1,31 @@
 mixin cardItem
     each item in product
-        .product 
-            .product__img(src=item.src , alt=item.alt)
-            h2.product__title=item.title 
-            span.product__price=item.price
-            +button("Add to card")
+        .col-lg-3.col-md-6.col-12
+            .product.text-center 
+                .product__img
+                    img.product__img(src=item.src , alt=item.alt)
+                .product__more 
+                    .product__love 
+                        i.fa.fa-heart
+                        p.product__txt Yêu thích
+                    .product__compare 
+                        i.fa.fa-heart
+                        p.product__txt So sánh
+                    .product__zoom 
+                        i.fa.fa-heart
+                .product__body   
+                    h2.product__title=item.title 
+                    p.product__price    
+                        span.product__price-sale=item.sale
+                        span.product__price-cost=item.price
+                a.btn.button.btn--black Add to card
 
 mixin cardNew(listNews)
     each item in listNews 
         .col-lg-4.col-md-6.col-12 
-            article.news
-                .news__img(src=item.src,alt=item.alt)
+            article.news__item
+                .news__img
+                    img(src=item.src,alt=item.alt)
                 .news__body 
                     .news__title=item.title 
                     .news__author=item.author 

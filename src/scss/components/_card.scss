@@ -1,0 +1,106 @@
+.news {
+  &__img {
+    @include relative;
+    overflow: hidden;
+    cursor: pointer;
+
+    &::after {
+      content: '';
+      @include absolute($top: 0, $left: 150%, $zindex: 2);
+      @include size($width: 150%, $height: 100%);
+      background-color: rgba($color: $color-white, $alpha: 0.5);
+      transform: skew(-45deg);
+      transition: 0.5s;
+      opacity: 0;
+    }
+
+    &:hover::after {
+      opacity: 1;
+      left: 50%;
+    }
+  }
+
+  &__body {
+    color: $color-black;
+    padding: 1rem 0;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-family: $ff-time;
+    font-size: $fs-xl;
+  }
+
+  &__author {
+    color: $color-gray;
+    padding: 0.5rem 0;
+  }
+
+  &__desc {
+    font-size: $fs-lg;
+  }
+
+  &__more {
+    color: $color-gray;
+    font-size: $fs-base;
+  }
+}
+
+.product {
+  &__img {
+    @include relative;
+    height: 500px;
+    object-fit: contain;
+    cursor: pointer;
+  }
+
+  &__more {
+    @include flex($justify: space-around, $align: center);
+    @include size($width: 100%, $height: auto);
+    color: $color-white;
+    background-color: $color-black;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &__love {
+    @include flex($justify: center, $align: center);
+    padding: 0.5rem 0;
+  }
+
+  &__compare {
+    @extend .product__love;
+  }
+
+  &__txt {
+    margin-bottom: 0;
+    padding-left: 0.5rem;
+  }
+
+  &__body {
+    color: $color-black;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-size: $fs-lg;
+    padding: 1rem 0 0.5rem 0;
+
+    &:hover {
+      color: $color-yellow;
+    }
+  }
+
+  &__price {
+    &-sale {
+      color: $color-yellow;
+      font-size: $fs-lg;
+      padding-right: 0.5rem;
+    }
+
+    &-cost {
+      text-decoration: line-through;
+    }
+  }
+}

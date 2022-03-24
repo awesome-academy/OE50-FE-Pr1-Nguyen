@@ -17,8 +17,7 @@
 
     &::after {
       content: '';
-      @include absolute($top: -2px, $left: 100%);
-      z-index: $zindex1;
+      @include absolute($top: -2px, $left: 100%, $zindex: 1);
       border-top: 18px solid transparent;
       border-bottom: 18px solid transparent;
       border-left: 25px solid black;

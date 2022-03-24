@@ -1,0 +1,26 @@
+.breadcrumbs {
+  margin: 2rem 0;
+}
+
+.breadcrumb {
+  &__item {
+    @include relative;
+    padding: 0 0.5rem;
+
+    &:not(:last-child)::after {
+      content: '';
+      @include absolute($top: 33%, $left: 100%);
+      @include size($width: 1px, $height: 10px);
+      background-color: $color-black;
+      transform: skew(-30deg);
+    }
+
+    &:last-child .breadcrumb__link {
+      color: $color-yellow;
+    }
+  }
+
+  &__link {
+    font-size: $fs-base;
+  }
+}

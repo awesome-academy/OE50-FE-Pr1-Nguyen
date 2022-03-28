@@ -38,4 +38,99 @@ block slider
             span.visually-hidden Next
 
 block content
-    section.intro 
+    main    
+        section.intro 
+            .container 
+                .row.text-center
+                    .col-lg-8.offset-lg-2.col-12.pt-5
+                        +title("Giới thiệu")
+                        p.desc  Mriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatumzzril delenit augue duis dolore te feugait nulla facilisi.Nam libertempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui faciteorum demonstraverunt lectores legere me lius quod ii legunt saepius.Claritas est etiam processus dynamicus, quisequitur mutationem consuetudium lectorum. Mirum est notare quamlittera gothica, quam nunc putam
+                        a.btn.button.btn--black Xem thêm
+                .row 
+                    .intro__product.row
+                        .intro__img
+                            img.intro__img(src='/assets/wine-63931_12802-1240x829.jpg' alt="")
+                        .highlight.col-lg-10.offset-lg-1.col-12 
+                            .highlight__wrapper 
+                                .highlight__img 
+                                    img.highlight__img(src="/assets/df3218bb45274009c6c3d5de8a6b98bf.jpg" alt="")
+                                .highlight__info 
+                                    h2.subtitle.highlight__title Rượu nho năm 1987
+                                    .highlight__price 350.000 VNĐ 
+                                    a.btn.button.btn--black Add to cart 
+                                    p.desc Một hợp chất có trong rượu vang được gọi là resveratro có khả năng làm tăng tối đa tuổi thọ. Resveratro còn có khả năng ngăn chặn mật độ ôxy hoá của protein béo.
+                                    ul.time 
+                                        li.time__item 334 ngày
+                                        li.time__item 334 ngày
+                                        li.time__item 334 ngày
+                                        li.time__item 334 ngày
+        section.new-product.py-5 
+            .container.text-center 
+                +title("Sản phẩm mới")
+                #new-product.carousel-home.carousel.slide.py-5(data-bs-ride='carousel')
+                    .carousel-inner
+                        .carousel-item.active
+                            .row
+                                +cardItem(newProduct)
+                        .carousel-item
+                            .row
+                                +cardItem(newProduct)
+                        .carousel-item
+                            .row
+                                +cardItem(newProduct)
+                    button.carousel-control-prev(type='button' data-bs-target='#new-product' data-bs-slide='prev')
+                        i.fa.fa-arrow-left
+                        span.visually-hidden Previous
+                    button.carousel-control-next(type='button' data-bs-target='#new-product' data-bs-slide='next')
+                        i.fa.fa-arrow-right
+                        span.visually-hidden Next
+        section.albums.py-5 
+            ul.albums__list
+                each item in homeImg
+                    li.albums__item 
+                        img.albums__img(src=item.src alt=item.alt)
+                        .albums__content.text-center 
+                            .albums__year=item.year 
+                            .albums__desc 
+                                h2.albums__title=item.title
+        section.bestseller.py-5 
+            .container.text-center 
+                +title("Sản phẩm bán chạy")
+                #bestseller.carousel-home.carousel.slide.py-5(data-bs-ride='carousel')
+                    .carousel-inner
+                        .carousel-item.active
+                            .row
+                                +cardItem(bestseller)
+                        .carousel-item
+                            .row
+                                +cardItem(bestseller)
+                    button.carousel-control-prev(type='button' data-bs-target='#bestseller' data-bs-slide='prev')
+                        i.fa.fa-arrow-left
+                        span.visually-hidden Previous
+                    button.carousel-control-next(type='button' data-bs-target='#bestseller' data-bs-slide='next')
+                        i.fa.fa-arrow-right
+                        span.visually-hidden Next
+        section.blog    
+            .container 
+                .row
+                    .col-lg-8
+                        .row
+                            +title("Tin tức & blog")
+                            .col-md-6.col-12.pt-4
+                                +cardNew(homeNews1)
+                            .col-md-6.col-12.pt-4 
+                                +cardNew(homeNews2)
+                    .col-lg-4
+                        article.customer.text-center
+                            +title("Khách hàng")
+                            img.customer__quote.pt-4(src="/assets/quote.png" alt="quote")
+                            .news__desc Vang nổ Thăng Long có hương vị đặc trưng của sản phẩm lên men tự nhiên từ hoa quả với độ rượu nhẹ, bọt ga đầy trắng mịn. Vang Nổ thăng long...
+                            a.news__more(href="") Read more
+                            .customer__main 
+                                #customer.carousel-home.carousel.slide(data-bs-ride='carousel')
+                                    .carousel-inner
+                                        each item in customerData
+                                            .carousel-item(class=item.class)
+                                                img.customer__img(src=item.src alt=item.alt)
+                                                .customer__name=item.name
+                                                .customer__position=item.position

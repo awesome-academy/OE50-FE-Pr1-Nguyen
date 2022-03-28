@@ -30,4 +30,220 @@
     font-size: calc(6 * 0.3vw);
     width: calc($wf / 4);
   }
+
+  &-control-prev,
+  &-control-next {
+    @include size($width: 15%, $height: 5%);
+    @include absolute($top: 50%, $left: null);
+    color: $color-black;
+  }
+}
+
+.intro {
+  @include relative;
+  padding: 5rem 0;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    @include absolute($top: 0%, $left: 0, $zindex: -1);
+    @include size($width: 100%);
+    background: url(/assets/product.jpg) no-repeat;
+  }
+
+  &::before {
+    content: '';
+    @include absolute($top: 0%, $left: 20%, $zindex: -1);
+    @include size($width: 100%);
+    background: url(/assets/product.jpg) no-repeat;
+    transform: rotateY(180deg);
+    @include respond-to(desktop-and-down) {
+      display: none;
+    }
+  }
+
+  &__desc {
+    padding-top: 2rem;
+    color: $color-black;
+    font-size: $fs-base;
+  }
+
+  &__product {
+    padding-top: 15rem;
+    @include respond-to(smallphone-and-down) {
+      padding-top: 25rem;
+    }
+  }
+}
+
+.highlight {
+  background: $color-white;
+  margin-top: -30rem;
+
+  &__wrapper {
+    @include flex($justify: space-between, $align: flex-start);
+    padding: 5rem;
+    @include respond-to(desktop-and-down) {
+      @include flex($justify: center, $align: center, $direction: column);
+    }
+    @include respond-to(smallphone-and-down) {
+      padding: 0;
+    }
+  }
+
+  &__img {
+    @include size($width: $wf, $height: 800px);
+    object-fit: contain;
+    @include respond-to(desktop-and-down) {
+      @include size($width: $wf, $height: 500px);
+    }
+  }
+
+  &__title {
+    font-size: calc($fs-xs * 2);
+    letter-spacing: 1.2px;
+  }
+
+  &__info {
+    @include size($width: 45%, $height: 100%);
+    @include respond-to(desktop-and-down) {
+      @include size($width: $wf);
+    }
+  }
+
+  &__price {
+    padding: 1rem 0;
+    font-size: calc($fs-sm + $fs-base);
+    color: $color-yellow;
+  }
+}
+
+.time {
+  @include flex($justify: center, $align: center, $wrap: wrap);
+
+  &__item {
+    color: gold;
+    width: 50%;
+    padding: 2rem;
+    border: 1px solid gold;
+    font-size: calc($fs-sm + $fs-base);
+  }
+}
+
+.albums {
+  &__list {
+    @extend .time;
+  }
+
+  &__item {
+    @include relative;
+    @include size($width: 25%);
+    @include respond-to(largedesktop-and-down) {
+      @include size($width: 50%);
+    }
+    @include respond-to(tablet-and-down) {
+      @include size($width: 100%);
+    }
+
+    &:hover .albums__img {
+      border: 5px solid $color-yellow;
+    }
+
+    &:hover .albums__line:nth-child(1),
+    &:hover .albums__line:nth-child(3) {
+      @include size($width: 1px, $height: 85%);
+    }
+
+    &:hover .albums__line:nth-child(2),
+    &:hover .albums__line:nth-child(4) {
+      @include size($width: 75%, $height: 1px);
+    }
+
+    &:hover .albums__content {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &:hover .albums__desc::after {
+      @include size($width: 85%, $height: 100%);
+    }
+
+    &:hover .albums__desc::before {
+      @include size($width: 75%, $height: 120%);
+    }
+  }
+
+  &__content {
+    @include absolute($top: 30%, $left: 0%, $zindex: 1);
+    @include size($width: $wf, $height: auto);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s;
+  }
+
+  &__img {
+    @include size($width: $wf, $height: 300px);
+    object-fit: none;
+  }
+
+  &__year {
+    font-size: calc($fs-xs * 2);
+    letter-spacing: 6px;
+  }
+
+  &__desc {
+    @include relative;
+    @include respond-to(desktop-and-down) {
+      padding: 2rem 0;
+    }
+
+    &::after {
+      content: '';
+      @include absolute($top: 0%, $left: 5%);
+      @include size($width: 0, $height: 100%);
+      border-top: 1px solid $color-white;
+      border-bottom: 1px solid $color-white;
+      transition: 0.4s;
+    }
+
+    &::before {
+      content: '';
+      @include absolute($top: -10%, $left: 10%);
+      @include size($width: 75%, $height: 0);
+      border-left: 1px solid $color-white;
+      border-right: 1px solid $color-white;
+      transition: 0.4s;
+      transition-delay: 0.4s;
+    }
+  }
+
+  &__title {
+    font-size: calc(6 * 0.7vw);
+    text-transform: uppercase;
+    letter-spacing: 10px;
+  }
+}
+
+.customer {
+  &__quote {
+    @include size($width: 15%);
+    margin: 2rem 0 1rem 0;
+  }
+
+  &__img {
+    @include size($width: 25%, $height: 100px);
+    object-fit: cover;
+    border-radius: 5px;
+    margin: 2rem 0;
+  }
+
+  &__name {
+    color: $color-black;
+    text-transform: uppercase;
+  }
+
+  &__position {
+    color: $color-gray;
+    font-style: italic;
+  }
 }

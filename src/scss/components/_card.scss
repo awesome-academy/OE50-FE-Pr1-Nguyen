@@ -9,7 +9,7 @@
       @include absolute($top: 0, $left: 150%, $zindex: 2);
       @include size($width: 150%, $height: 100%);
       background-color: rgba($color: $color-white, $alpha: 0.5);
-      transform: skew(-45deg);
+      transform: skew(-56deg);
       transition: 0.5s;
       opacity: 0;
     }
@@ -39,6 +39,7 @@
 
   &__desc {
     font-size: $fs-lg;
+    color: $color-black;
   }
 
   &__more {
@@ -48,11 +49,49 @@
 }
 
 .product {
+  margin: 1rem 0;
+  &:hover .product__more {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-1rem);
+  }
+
   &__img {
     @include relative;
     height: 500px;
     object-fit: contain;
     cursor: pointer;
+    overflow: hidden;
+    @include respond-to(desktop-and-down) {
+      height: 250px;
+    }
+  }
+
+  &__tag {
+    @include absolute($top: -10%, $left: -8%);
+    @include size($width: 150px);
+    @include respond-to(tablet-and-down) {
+      @include absolute($top: -10%, $left: -4%);
+    }
+
+    &--new {
+      @include absolute($top: 30%, $left: -45%);
+      @include size($width: 220px, $height: 40px);
+      background-color: $color-yellow;
+      line-height: 40px;
+      font-size: $fs-lg;
+      transform: rotate(-45deg);
+    }
+
+    &--sale {
+      @extend .product__tag--new;
+      background-color: $color-red;
+    }
+
+    &--hot {
+      @extend .product__tag--new;
+      background-color: $color-green;
+    }
   }
 
   &__more {
@@ -62,6 +101,8 @@
     background-color: $color-black;
     opacity: 0;
     visibility: hidden;
+    transition: 0.5s;
+    margin-top: -1rem;
   }
 
   &__love {

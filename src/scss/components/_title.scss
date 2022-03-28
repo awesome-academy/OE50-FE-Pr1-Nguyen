@@ -3,6 +3,7 @@
   font-size: $fs-xl;
   text-transform: uppercase;
   color: $color-black;
+  text-align: center;
 
   &::after {
     content: '';
@@ -24,4 +25,9 @@
     @include size($width: $wf);
     background: url(/assets/titleleft-dark.png) no-repeat left top;
   }
+}
+
+.desc {
+  color: $color-black;
+  padding-top: 1rem;
 }

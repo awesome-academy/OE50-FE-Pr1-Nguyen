@@ -20,8 +20,8 @@ mixin pagination (totalPage)
                 a.page-link(href='#' aria-label='Next')
                     span(aria-hidden='true') &raquo;
 
-mixin title ({title, level = 2})
+mixin title (title, level = 2)
     #{'h' + level}(class = 'title')=title
 
-mixin subtitle ({subtitle, level = 2})
+mixin subtitle (subtitle, level = 2)
     #{'h' + level}(class = 'subtitle')=subtitle

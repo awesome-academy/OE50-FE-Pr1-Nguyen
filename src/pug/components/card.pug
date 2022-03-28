@@ -1,9 +1,11 @@
-mixin cardItem
+mixin cardItem(product)
     each item in product
         .col-lg-3.col-md-6.col-12
             .product.text-center 
                 .product__img
                     img.product__img(src=item.src , alt=item.alt)
+                    .product__tag
+                        span(class=item.class)=item.txt
                 .product__more 
                     .product__love 
                         i.fa.fa-heart
@@ -22,12 +24,13 @@ mixin cardItem
 
 mixin cardNew(listNews)
     each item in listNews 
-        .col-lg-4.col-md-6.col-12 
-            article.news__item
-                .news__img
-                    img(src=item.src,alt=item.alt)
-                .news__body 
-                    .news__title=item.title 
-                    .news__author=item.author 
-                    .news__desc=item.desc 
-                    .news__more=item.more
+        article.news__item
+            .news__img
+                img(src=item.src,alt=item.alt)
+            .news__body 
+                .news__title=item.title 
+                .news__author=item.author 
+                .news__desc=item.desc 
+                a.news__more(href="#")=item.more
+
+

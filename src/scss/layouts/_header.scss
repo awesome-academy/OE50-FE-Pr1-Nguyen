@@ -1,5 +1,5 @@
 .header {
-  @include absolute($zindex: 2);
+  @include absolute($zindex: calc($z-elevator + 1));
   background-color: rgba($color: $color-white, $alpha: 0.1);
   width: $wf;
 
@@ -56,7 +56,7 @@
     display: none;
 
     &:checked ~ .header__list {
-      @include absolute($top: 1rem, $zindex: 5);
+      @include absolute($top: 1rem, $zindex: calc($z-elevator + 4));
       display: block;
       background-color: $color-black;
       text-align: center;

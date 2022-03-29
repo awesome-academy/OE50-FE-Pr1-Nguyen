@@ -70,14 +70,20 @@ block content
                 #new-product.carousel-home.carousel.slide.py-5(data-bs-ride='carousel')
                     .carousel-inner
                         .carousel-item.active
-                            .row
-                                +cardItem(newProduct)
+                            .row 
+                                each product in newProduct 
+                                    .col-lg-3.col-md-6
+                                        +cardItem(product)
                         .carousel-item
                             .row
-                                +cardItem(newProduct)
+                                each product in newProduct 
+                                    .col-lg-3.col-md-6
+                                        +cardItem(product)
                         .carousel-item
                             .row
-                                +cardItem(newProduct)
+                                each product in newProduct 
+                                    .col-lg-3.col-md-6
+                                        +cardItem(product)
                     button.carousel-control-prev(type='button' data-bs-target='#new-product' data-bs-slide='prev')
                         i.fa.fa-arrow-left
                         span.visually-hidden Previous
@@ -100,10 +106,14 @@ block content
                     .carousel-inner
                         .carousel-item.active
                             .row
-                                +cardItem(bestseller)
+                                each product in bestseller 
+                                    .col-lg-3.col-md-6
+                                        +cardItem(product)
                         .carousel-item
                             .row
-                                +cardItem(bestseller)
+                                each product in bestseller 
+                                    .col-lg-3.col-md-6
+                                        +cardItem(product)
                     button.carousel-control-prev(type='button' data-bs-target='#bestseller' data-bs-slide='prev')
                         i.fa.fa-arrow-left
                         span.visually-hidden Previous

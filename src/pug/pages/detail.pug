@@ -1,0 +1,96 @@
+extends ../base/layout.pug
+
+block title 
+    title Detail Product || Wine shop 
+block content
+    main 
+        +breadcrumbs(detailBreadcrumbs)
+        section.detail
+            .container 
+                .row 
+                    .col-lg-7.detail__product 
+                        ul.thumbnails 
+                            each item in thumbnailsData
+                                li.thumbnails__item
+                                    a.thumbnails__link(href=item.subId)
+                                        img.thumbnails__img(src=item.src, alt=item.alt)
+                        ul.detail__slider 
+                            each item in thumbnailsData
+                                li.detail__slider-item(id=item.id)
+                                    img.detail__slider-img(src=item.src, alt=item.alt)
+                    .col-lg-5.detail__info.ps-5 
+                        form(action="")
+                            h2.subtitle.highlight__title Rượu nho năm 1987 
+                            .highlight__price 350.000 VNĐ 
+                            .detail__rating 
+                                +rating(4)
+                                span 1 Review(S) | Add Your Review
+                            .detail__color.py-2 
+                                h3.detail__title Màu sắc
+                                ul.detail__color-list 
+                                    each item in color 
+                                        li.detail__color-item 
+                                            label.list__item(class=item.class, for=item.id)
+                                            input.form-check-input(id=item.id , type="radio" name="color",value=item.color)
+                            .detail__size.py-2 
+                                h3.detail__title Kích cỡ
+                                select.detail__select(name="size")
+                                    each item in option
+                                        option(value=item.value)=item.value 
+                            .detail__quantity.py-2 
+                                h3.detail__title  Số lượng
+                                button.detail__quantity-decrease -
+                                input(type='number' class="detail__quantity-input" value="1" name="quantity")
+                                button.detail__quantity-increase +
+                                a.btn.button.btn--black.ms-3 Add to card
+                                .product-list__status.py-3 
+                                    .product__love 
+                                        i.fa.fa-heart
+                                        p.product__txt Yêu thích
+                                    .product__compare 
+                                        i.fa.fa-heart
+                                        p.product__txt So sánh
+                                    .product__mail 
+                                        i.fa.fa-heart
+                                        p.product__txt Email
+                            .detail__desc 
+                                h3.detail__title Mô tả
+                                p.desc Một hợp chất có trong rượu vang được gọi là resveratro có khả năng làm tăng tối đa tuổi thọ. Resveratro còn có khả năng ngăn chặn mật độ oxy hóa của protein béo.
+                .row.py-5
+                    .col-lg-7 
+                        #accordion.accordion
+                            each item in accordion 
+                                .accordion-item 
+                                    h2.accordion-header(id=item.id)
+                                        button.accordion-button(class=item.class ,type="button" data-bs-toggle='collapse',data-bs-target=item.thirdId,aria-controls=item.subId,aria-expanded=item.status)=item.buttonTxt 
+                                    .accordion-collapse.collapse(id=item.subId,class=item.show, aria-labelledby=item.id,data-bs-target="#accordion")
+                                        .accordion-body 
+                                            p.desc=item.desc 
+                    .col-lg-5
+                        img.accordion__img(src="/assets/Depositphotos_3010981_original1.jpg" alt="")
+        section.related-product.py-5 
+            .container.text-center 
+                +title("Sản phẩm liên quan")
+                #related-product.carousel-home.carousel.slide.py-5(data-bs-ride='carousel')
+                    .carousel-inner
+                        .carousel-item.active
+                            .row
+                                each product in newProduct 
+                                    .col-lg-3.col-md-6
+                                        +cardItem(product)
+                        .carousel-item
+                            .row
+                                each product in newProduct 
+                                    .col-lg-3.col-md-6
+                                        +cardItem(product)
+                        .carousel-item
+                            .row
+                                each product in newProduct 
+                                    .col-lg-3.col-md-6
+                                        +cardItem(product)
+                    button.carousel-control-prev(type='button' data-bs-target='#related-product' data-bs-slide='prev')
+                        i.fa.fa-arrow-left
+                        span.visually-hidden Previous
+                    button.carousel-control-next(type='button' data-bs-target='#related-product' data-bs-slide='next')
+                        i.fa.fa-arrow-right
+                        span.visually-hidden Next

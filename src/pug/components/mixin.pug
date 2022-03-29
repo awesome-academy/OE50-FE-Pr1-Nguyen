@@ -25,3 +25,8 @@ mixin title (title, level = 2)
 
 mixin subtitle (subtitle, level = 2)
     #{'h' + level}(class = 'subtitle')=subtitle
+
+mixin rating (rate = 5)
+    -const stars = [...Array(5)].map((_, index) => index < rate ? 'fa fa-star' : 'fa fa-star-half')
+    each star in stars 
+        i(class=star)

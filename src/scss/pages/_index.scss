@@ -14,20 +14,20 @@
   &__title {
     @include relative;
     font-family: $ff-UTM;
-    font-size: calc(6 * 5vw);
+    font-size: calc($fs-xs * 2 + 30vw);
   }
 
   &__subtitle {
     @include absolute($top: 20%, $left: 55%);
     font-family: $ff-UVF;
-    font-size: calc(6 * 1vw);
+    font-size: calc($fs-xs * 2 + 5vw);
     text-transform: capitalize;
   }
 
   &__txt {
     @include absolute($top: 68%, $left: 100%);
     font-family: $ff-Lobster;
-    font-size: calc(6 * 0.3vw);
+    font-size: calc($fs-base + 1vw);
     width: calc($wf / 4);
   }
 
@@ -46,14 +46,14 @@
 
   &::after {
     content: '';
-    @include absolute($top: 0%, $left: 0, $zindex: -1);
+    @include absolute($top: 0%, $left: 0, $zindex: calc($z-elevator - 2));
     @include size($width: 100%);
     background: url(/assets/product.jpg) no-repeat;
   }
 
   &::before {
     content: '';
-    @include absolute($top: 0%, $left: 20%, $zindex: -1);
+    @include absolute($top: 0%, $left: 20%, $zindex: calc($z-elevator - 2));
     @include size($width: 100%);
     background: url(/assets/product.jpg) no-repeat;
     transform: rotateY(180deg);
@@ -149,16 +149,6 @@
       border: 5px solid $color-yellow;
     }
 
-    &:hover .albums__line:nth-child(1),
-    &:hover .albums__line:nth-child(3) {
-      @include size($width: 1px, $height: 85%);
-    }
-
-    &:hover .albums__line:nth-child(2),
-    &:hover .albums__line:nth-child(4) {
-      @include size($width: 75%, $height: 1px);
-    }
-
     &:hover .albums__content {
       opacity: 1;
       visibility: visible;
@@ -174,7 +164,7 @@
   }
 
   &__content {
-    @include absolute($top: 30%, $left: 0%, $zindex: 1);
+    @include absolute($top: 30%, $left: 0%, $zindex: $z-elevator);
     @include size($width: $wf, $height: auto);
     opacity: 0;
     visibility: hidden;

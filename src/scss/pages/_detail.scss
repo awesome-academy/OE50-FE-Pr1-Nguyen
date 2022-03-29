@@ -1,0 +1,147 @@
+.accordion {
+  @include flex($justify: flex-start, $align: flex-start);
+  @include relative;
+
+  &-item {
+    border: none;
+  }
+
+  &-collapse {
+    @include absolute($top: 100%, $left: 0);
+  }
+
+  &-button {
+    text-transform: uppercase;
+
+    &:not(.collapsed) {
+      color: $color-white;
+      background-color: $color-yellow;
+      border: none;
+    }
+  }
+
+  &__img {
+    @include respond-to(phone-and-down) {
+      @include size($width: 100%, $height: 130vh);
+      object-fit: cover;
+    }
+  }
+}
+
+.detail {
+  &__product {
+    @include flex($justify: flex-start, $align: center);
+    border: 1px solid $color-gray;
+  }
+
+  &__info {
+    @include respond-to(phone-and-down) {
+      padding-left: 1rem !important;
+    }
+  }
+
+  &__slider {
+    @include relative;
+    @include size($width: 100%);
+    overflow: hidden;
+
+    &-item {
+      @include size($width: $wf, $height: 100vh);
+      @include absolute($top: 0, $left: 0, $zindex: $z-elevator);
+
+      &:target {
+        z-index: calc($z-elevator + 1);
+      }
+    }
+
+    &-img {
+      @include size($width: 100%);
+      object-fit: contain;
+      object-position: top;
+    }
+  }
+
+  &__rating {
+    color: $color-gray;
+    padding: 1rem 0;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+  }
+
+  &__title {
+    color: $color-gray;
+    text-transform: uppercase;
+    font-size: $fs-xl;
+  }
+
+  &__color {
+    &-list {
+      @include flex($justify: flex-start, $align: center);
+    }
+
+    &-item {
+      padding-right: 0.5rem;
+    }
+  }
+
+  &__select {
+    @include size($width: 8vw, $height: 4vh);
+    padding-left: 0.5rem;
+    font-size: $fs-lg;
+    border-radius: 0;
+    @include respond-to(phone-and-down) {
+      @include size($width: 26vw, $height: 8vw);
+    }
+  }
+
+  &__quantity {
+    &-decrease,
+    &-increase {
+      @include size($width: 2vw, $height: 4vh);
+      @include respond-to(phone-and-down) {
+        @include size($width: 6vw, $height: 4vh);
+      }
+    }
+
+    &-input {
+      @include size($width: 6vw, $height: 4vh);
+    }
+  }
+}
+
+.thumbnails {
+  @include flex($justify: flex-start, $align: center, $direction: column);
+  line-height: 0;
+  border-right: 1px solid $color-gray;
+
+  &__link {
+    display: block;
+    @include size($width: 5vw, $height: 100%);
+  }
+
+  &__img {
+    @include size($width: 100%, $height: 20vh);
+    object-fit: contain;
+    object-position: left;
+  }
+}
+
+.list__item {
+  @include size($width: 25px);
+
+  &--black {
+    background-color: $color-black;
+  }
+
+  &--red {
+    background-color: $color-red;
+  }
+
+  &--yellow {
+    background-color: $color-yellow;
+  }
+}
+
+.form-check-input {
+  display: none;
+}

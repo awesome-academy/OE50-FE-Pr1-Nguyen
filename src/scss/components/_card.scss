@@ -6,7 +6,7 @@
 
     &::after {
       content: '';
-      @include absolute($top: 0, $left: 150%, $zindex: 2);
+      @include absolute($top: 0, $left: 150%, $zindex: calc($z-elevator + 1));
       @include size($width: 150%, $height: 100%);
       background-color: rgba($color: $color-white, $alpha: 0.5);
       transform: skew(-56deg);
@@ -110,7 +110,8 @@
     padding: 0.5rem 0;
   }
 
-  &__compare {
+  &__compare,
+  &__mail {
     @extend .product__love;
   }
 
@@ -142,6 +143,43 @@
 
     &-cost {
       text-decoration: line-through;
+    }
+  }
+}
+
+.product-list {
+  @include flex($justify: flex-start, $align: flex-start);
+  color: $color-black;
+
+  &__img {
+    @include size($width: 40vmin, $height: 50vmin);
+    object-fit: contain;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-size: calc($fs-xs * 2 + 1vw);
+  }
+
+  &__price {
+    color: $color-yellow;
+    font-size: calc($fs-xs * 2 + 1vw);
+  }
+
+  &__body {
+    @include size($width: 30%, $height: auto);
+  }
+
+  &__more {
+    @include flex($justify: flex-start, $align: center);
+  }
+
+  &__status {
+    @include flex($justify: space-around, $align: center);
+    @include size($width: 30vw, $height: auto);
+    color: $color-gray;
+    @include respond-to(phone-and-down) {
+      @include size($width: 60vw, $height: auto);
     }
   }
 }

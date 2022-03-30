@@ -1,36 +1,51 @@
 mixin cardItem(product)
-    each item in product
-        .col-lg-3.col-md-6.col-12
-            .product.text-center 
-                .product__img
-                    img.product__img(src=item.src , alt=item.alt)
-                    .product__tag
-                        span(class=item.class)=item.txt
-                .product__more 
-                    .product__love 
-                        i.fa.fa-heart
-                        p.product__txt Yêu thích
-                    .product__compare 
-                        i.fa.fa-heart
-                        p.product__txt So sánh
-                    .product__zoom 
-                        i.fa.fa-heart
-                .product__body   
-                    h2.product__title=item.title 
-                    p.product__price    
-                        span.product__price-sale=item.sale
-                        span.product__price-cost=item.price
-                a.btn.button.btn--black Add to card
+  .product.text-center 
+    .product__img
+      img.product__img(src=product.src , alt=product.alt)
+      .product__tag
+        span(class=product.class)=product.txt
+    .product__more 
+      .product__love 
+        i.fa.fa-heart
+        p.product__txt Yêu thích
+      .product__compare 
+        i.fa.fa-heart
+        p.product__txt So sánh
+      .product__zoom 
+        i.fa.fa-heart
+    .product__body   
+      h2.product__title=product.title 
+      p.product__price    
+        span.product__price-sale=product.sale
+        span.product__price-cost=product.price
+    a.btn.button.btn--black Add to card
 
-mixin cardNew(listNews)
-    each item in listNews 
-        article.news__item
-            .news__img
-                img(src=item.src,alt=item.alt)
-            .news__body 
-                .news__title=item.title 
-                .news__author=item.author 
-                .news__desc=item.desc 
-                a.news__more(href="#")=item.more
+mixin cardNew(news) 
+  article.news__item
+    .news__img
+      img(src=news.src,alt=news.alt)
+    .news__body 
+      .news__title=news.title 
+      .news__author=news.author 
+      .news__desc=news.desc 
+      a.news__more(href="#")=news.more
 
-
+mixin cardItemList(product)
+  .product-list 
+    .product-list__img
+      img.product-list__img(src=product.src , alt=product.alt)
+      .product-list__tag
+        span(class=product.class)=product.txt
+    .product-list__body   
+      h2.product-list__title=product.title 
+      p.product-list__price=product.price
+      p.product-list__txt=product.desc
+      .product-list__more 
+        a.btn.button.btn--black Add to card
+        .product-list__status 
+          .product__love 
+            i.fa.fa-heart
+            p.product__txt Yêu thích
+          .product__compare 
+            i.fa.fa-heart
+            p.product__txt So sánh

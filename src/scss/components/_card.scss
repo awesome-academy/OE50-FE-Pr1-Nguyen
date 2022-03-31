@@ -150,6 +150,11 @@
 .product-list {
   @include flex($justify: flex-start, $align: flex-start);
   color: $color-black;
+  padding: 2rem 0;
+  border-bottom: 1px solid $color-gray;
+  @include respond-to(tablet-and-down) {
+    @include flex($justify: center, $align: center, $direction: column);
+  }
 
   &__img {
     @include size($width: 40vmin, $height: 50vmin);
@@ -167,7 +172,10 @@
   }
 
   &__body {
-    @include size($width: 30%, $height: auto);
+    @include size($width: 50%, $height: auto);
+    @include respond-to(tablet-and-down) {
+      @include size($width: $wf);
+    }
   }
 
   &__more {
@@ -176,7 +184,7 @@
 
   &__status {
     @include flex($justify: space-around, $align: center);
-    @include size($width: 30vw, $height: auto);
+    @include size($width: 20vw, $height: auto);
     color: $color-gray;
     @include respond-to(phone-and-down) {
       @include size($width: 60vw, $height: auto);

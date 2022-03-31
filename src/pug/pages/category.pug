@@ -1,0 +1,58 @@
+extends ../base/layout.pug
+
+block title 
+    title  Category Product || Wine shop 
+block content
+    main 
+        +breadcrumbs(categoryBreadcrumbs)
+        section.banner
+            .container
+                img.banner__img(src="/assets/slide-3.jpg" alt="")
+        section.category-home.py-5 
+            .container 
+                .row 
+                    .col-lg-3
+                        form.filter 
+                            label.filter__toggle(for="filter__toggle")
+                                i.fa.fa-bars
+                            input#filter__toggle.form-check-input(type="checkbox")
+                            .filter__list 
+                                aside
+                                    .filter__category
+                                        +subtitle("Danh sách sản phẩm")
+                                        nav
+                                            each item in sidebar
+                                                ul.filter__category-list.pt-3 
+                                                    a.nav__link.nav__link--black(href="#")=item.title
+                                                    each link in item.link
+                                                        li.filter__category-item
+                                                            a.filter__category-link(href="#")=link
+                                    .filer__compare
+                                        +subtitle("So sánh sản phẩm")
+                                        p.mb-2.desc Bạn chưa có sản phẩm nào để so sánh
+                                    .filter__tag.tag
+                                        +subtitle("tag sản phẩm")
+                                        nav
+                                            ul.tag__list.pt-3
+                                                each item in tagList
+                                                    li.tag__item 
+                                                        a.btn.button.btn--yellow= item 
+                    .col-lg-9
+                        form.view#view
+                            input#view__list.form-check-input(type='radio' name='view-filter' checked='')
+                            label.view__icon.view__list(for='view__list')
+                                i.fa.fa-list
+                            input#view__grid.form-check-input(type='radio' name='view-filter')
+                            label.view__icon.view__grid(for='view__grid')
+                                i.fa.fa-table
+                            +pagination(5)
+                            .category__product-list
+                                .row 
+                                    each product in categoryProduct
+                                        .col-12 
+                                            +cardItemList(product)
+                            .category__product-grid 
+                                .row 
+                                    each product in categoryProduct 
+                                        .col-lg-4.col-md-6.col-12 
+                                            +cardItem(product)

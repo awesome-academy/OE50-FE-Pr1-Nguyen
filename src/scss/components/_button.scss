@@ -12,6 +12,18 @@
     }
   }
 
+  &--yellow {
+    background-color: transparent;
+    color: $color-black;
+    border: 1px solid $color-yellow;
+    padding: 0.25rem 1rem;
+    text-transform: initial;
+
+    &:hover {
+      background-color: $color-yellow;
+    }
+  }
+
   &--arrow {
     @include relative;
 

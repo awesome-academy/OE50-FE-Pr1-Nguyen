@@ -1,0 +1,11 @@
+.page {
+  &-link {
+    border: none;
+    color: $color-black;
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+.pagination {
+  padding-left: calc(15% + 40vw);
+}

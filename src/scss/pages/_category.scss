@@ -43,6 +43,10 @@
   &__grid:checked ~ .category__product-grid {
     display: block;
   }
+
+  &__grid:not(:checked) ~ .category__product-grid {
+    display: none;
+  }
 }
 
 .filter {

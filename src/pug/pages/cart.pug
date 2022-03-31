@@ -1,0 +1,35 @@
+extends ../base/layout.pug
+
+block title 
+    title  Category Product || Wine shop 
+block content
+    main 
+        +breadcrumbs(cartBreadcrumbs)
+        section.cart 
+            .container
+                +subtitle("Giỏ hàng")
+                .table-responsive.cart__table.pt-5
+                    table.table.bg-light.text-center
+                        thead.table__thead 
+                            tr.table__thead-tr
+                                each item in cartTitle
+                                    th.table__title=item
+                        tbody.table__tbody 
+                            each item in cartItem 
+                                tr.table__tr 
+                                    td.table__td(data-title="Ảnh")
+                                        img.table__img(src=item.img, alt="")
+                                    td.table__td(data-title="Tên Sản Phẩm")=item.name
+                                    td.table__td.table__price(data-title="Giá")=item.price 
+                                    td.table__td(data-title="Số lượng")=item.amount 
+                                    td.table__td.table__total(data-title="Tổng số")=item.totalMoney
+                                    td.table__td(data-title="Xóa") 
+                                        button.btn.button
+                                            i.fa.fa-trash
+                .row 
+                    .col 
+                        nav.buttons
+                            ul.buttons__list.pt-3
+                                each item in buttonsList
+                                    li.buttons__item 
+                                        a.btn.button.btn--black= item 

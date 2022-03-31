@@ -36,3 +36,13 @@
     }
   }
 }
+
+.buttons {
+  &__list {
+    @include flex($justify: flex-end, $align: center, $wrap: wrap);
+  }
+
+  &__item {
+    padding: 0.5rem;
+  }
+}

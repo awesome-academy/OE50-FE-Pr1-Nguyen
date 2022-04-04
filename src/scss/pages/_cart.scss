@@ -1,0 +1,58 @@
+.table {
+  border: 1px solid $color-gray;
+
+  &__img {
+    @include size($width: auto, $height: 150px);
+    object-fit: contain;
+    display: inline-block;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    border-right: 1px solid gray;
+  }
+
+  &__td {
+    border-right: 1px solid gray;
+    line-height: 150px;
+    text-transform: uppercase;
+  }
+
+  &__price,
+  &__total {
+    color: $color-yellow;
+  }
+
+  &__tbody,
+  &__tr,
+  &__td {
+    @include respond-to(tablet-and-down) {
+      display: block;
+    }
+  }
+
+  &__thead-tr {
+    @include respond-to(tablet-and-down) {
+      @include absolute($top: -100%, $left: -100%);
+    }
+  }
+
+  &__tr {
+    @include respond-to(tablet-and-down) {
+      border-bottom: 1px solid $color-black;
+    }
+  }
+
+  &__td {
+    @include respond-to(tablet-and-down) {
+      position: relative;
+      padding-left: 50%;
+      line-height: 2;
+
+      &::before {
+        content: attr(data-title);
+        @include absolute($top: 50%, $left: 5%);
+      }
+    }
+  }
+}

@@ -27,6 +27,13 @@
   }
 }
 
+.heading {
+  color: $color-black;
+  text-transform: uppercase;
+  font-size: $fs-xl;
+  letter-spacing: 3px;
+}
+
 .desc {
   color: $color-black;
   padding-top: 1rem;

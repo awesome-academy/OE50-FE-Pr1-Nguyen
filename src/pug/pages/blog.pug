@@ -1,0 +1,14 @@
+extends ../base/layout.pug
+
+block title 
+    title Info Wine Shop || Wine shop 
+block content
+    main 
+        +breadcrumbs(blogBreadcrumbs)
+        section.blog-page
+            .container  
+                +subtitle("Blog")
+                .row.py-5  
+                    each item in newList 
+                        .col-lg-4.col-md-6
+                            +cardNew(item)

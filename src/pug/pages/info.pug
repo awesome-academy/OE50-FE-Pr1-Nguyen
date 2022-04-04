@@ -1,0 +1,18 @@
+extends ../base/layout.pug
+
+block title 
+    title Info Wine Shop || Wine shop 
+block content
+    main 
+        +breadcrumbs(infoBreadcrumbs)
+        section.info-page 
+            .container   
+                +subtitle("Giới thiệu")
+                .row.py-5.info-wrapper
+                    each item in infoContent
+                        .col-lg-5
+                            .info__img 
+                                img.info__img(src=item.src alt=item.alt)
+                        .col-lg-6
+                            h2.heading=item.title 
+                            p.desc=item.desc

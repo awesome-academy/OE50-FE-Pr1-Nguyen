@@ -1,0 +1,70 @@
+extends ../base/layout.pug
+
+block title 
+    title Detail Blog Shop || Wine shop 
+block content
+    main 
+        +breadcrumbs(detailBlogBreadcrumbs)
+        section.detail-blog
+            .container  
+                +subtitle("Blog")
+                .row.detail-blog__wrapper.pt-3.pb-5
+                    .col-lg-3.filter-blog
+                        .filter-blog__list 
+                            aside 
+                                .filter-blog__replace 
+                                    .subheading Bài viết mới nhất
+                                    nav 
+                                        ul
+                                            each item in newsReplace 
+                                                li 
+                                                    +cardNewsRelated(item)
+                                .filter-blog__tag.py-3
+                                    .filter-blog__replace 
+                                        .subheading.py-3 Blog tags
+                                        nav
+                                            ul.tag__list.pt-3
+                                                each item in newsTag
+                                                    li.tag__item 
+                                                        a.btn.button.btn--orange= item 
+                                .filter-blog__video.py-3
+                                    .subheading.py-3 Latest video
+                                    img(src="/assets/video1.png" alt="") 
+                    .col-lg-9 
+                        each item in newsHighlight
+                            +cardNew(item)
+                        .feedback.py-5 
+                            .subheading.pb-2 Đóng góp ý kiến
+                            form(action="")
+                                .mb-3.row
+                                    .col-md-1
+                                        label.form-label(for='name') Tên
+                                    .col-md-11
+                                        input#name.form-control(type='name')
+                                .mb-3.row
+                                    .col-md-1
+                                        label.form-label(for='email') Email
+                                    .col-md-11
+                                        input#email6.form-control(type='email')
+                                .mb-3.row
+                                    .col-md-1
+                                        label.form-label(for='textarea') ý kiến
+                                    .col-md-11
+                                        textarea#textarea.form-control.feedback__textarea(type='textarea')
+                                a.btn.button.btn--black Gửi ý kiến
+                        .comment 
+                            .subheading.pb-2 Bình luận (3)
+                            .comment__wrapper.py-3 
+                                ul 
+                                    each item in comment 
+                                        li              
+                                            .comment__item 
+                                                .comment__user 
+                                                    .comment__right 
+                                                        .comment__author=item.author 
+                                                        .comment__time=item.time 
+                                                    .comment__rep 
+                                                        a(href="#") Trả lời 
+                                                .comment__content 
+                                                    p.desc=item.desc
+                        +pagination(3)

@@ -49,3 +49,13 @@ mixin cardItemList(product)
                     .product__compare 
                         i.fa.fa-heart
                         p.product__txt So sánh
+
+mixin cardNewsRelated(item) 
+    article.news-card__item
+        .news-card__img
+            img.news-card__img(src=item.src,alt=item.alt)
+        .news-card__body 
+            .news-card__title=item.title
+            .created-at 
+                i.fa.fa-calendar 
+                span.created-at__days=item.days

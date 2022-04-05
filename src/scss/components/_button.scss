@@ -24,6 +24,19 @@
     }
   }
 
+  &--orange {
+    background-color: $color-gray;
+    color: $color-black;
+    border-radius: 0.5rem;
+    padding: 0.2rem 0.75rem;
+    text-transform: initial;
+
+    &:hover {
+      background-color: $color-orange;
+      color: $color-white;
+    }
+  }
+
   &--arrow {
     @include relative;
 

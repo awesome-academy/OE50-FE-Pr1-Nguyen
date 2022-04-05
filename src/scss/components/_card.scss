@@ -50,6 +50,35 @@
     color: $color-gray;
     font-size: $fs-base;
   }
+
+  &-card {
+    &__item {
+      @include flex($justify: flex-start, $align: flex-start, $gap: 10px);
+      padding: 0.5rem 0;
+    }
+
+    &__body {
+      color: $color-black;
+    }
+
+    &__title {
+      font-size: $fs-sm;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    &__img {
+      @include size($width: 100px, $height: 75px);
+      object-fit: cover;
+    }
+  }
+}
+
+.created-at {
+  &__days {
+    padding-left: 0.25rem;
+    color: $color-gray;
+  }
 }
 
 .product {

@@ -1,0 +1,38 @@
+.detail-blog__wrapper {
+  @include respond-to(desktop-and-down) {
+    @include flex($justify: center, $align: center, $direction: column-reverse);
+  }
+}
+
+.feedback {
+  color: $color-black;
+  font-style: italic;
+
+  &__textarea {
+    min-height: calc(10.5rem + 0.75rem) !important;
+  }
+}
+
+.comment {
+  &__user {
+    @include flex($justify: space-between, $align: center);
+    background-color: $color-gray;
+    color: $color-black;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    font-style: italic;
+  }
+
+  &__right {
+    @include flex($justify: space-around, $align: center);
+  }
+
+  &__author {
+    padding-right: 1.5rem;
+    border-right: 1px solid $color-black;
+  }
+
+  &__time {
+    padding-left: 1rem;
+  }
+}

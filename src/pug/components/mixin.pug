@@ -30,3 +30,17 @@ mixin rating (rate = 5)
     -const stars = [...Array(5)].map((_, index) => index < rate ? 'fa fa-star' : 'fa fa-star-half')
     each star in stars 
         i(class=star)
+
+mixin inputText({label,name,value,classLabel, classInput, isEdited,type})
+    label.form-label(class=classLabel for=name)= label
+    div(class=classInput)
+        if(isEdited)
+            input.form-control(type='text' id=name name=name value=value)
+        else 
+            p.desc=value
+
+mixin checkBox(label,name,classLabel)
+    div(class=classLabel)
+        .form-check 
+            label.form-check-label.ps-2=label
+                input.form-check(type='checkbox' name=name)

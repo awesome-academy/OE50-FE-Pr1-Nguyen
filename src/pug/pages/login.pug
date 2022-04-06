@@ -1,0 +1,25 @@
+extends ../base/layout.pug
+
+block title 
+    title Login || Wine shop 
+block content
+    main 
+        +breadcrumbs(loginBreadcrumbs)
+        section.login.mb-5
+            .container
+                .login__top 
+                    +subtitle("Đăng nhập")
+                    button(type="submit").btn.button.btn--black Đăng kí
+                .login__content.mt-5 
+                    .heading Khách hàng đăng nhập 
+                    p.desc Nếu bạn có một tài khoản, xin vui lòng đăng nhập.
+                    form.login__form(action="") 
+                        .mt-3.row
+                            +inputText({label:"Email",name:"email",classLabel:"col-md-1",classInput:"col-md-11",isEdited: true})
+                        .mt-3.row
+                            +inputText({label:"Password",name:"password",classLabel:"col-md-1",classInput:"col-md-11",isEdited:true})
+                        .my-3.row 
+                            +checkBox("Quên mật khẩu","remember","offset-sm-1 col-sm-10")
+                        .row 
+                            .offset-sm-1.col-sm-10 
+                                button(type="submit").btn.button.btn--black Đăng nhập

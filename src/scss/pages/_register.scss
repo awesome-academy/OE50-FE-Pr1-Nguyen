@@ -1,0 +1,15 @@
+.register {
+  &__top {
+    @include flex($justify: space-between, $align: center);
+  }
+
+  &__content {
+    border: 1px solid $color-gray;
+    padding: 2rem;
+    color: $color-black;
+  }
+
+  &__cta {
+    @include flex($justify: flex-end, $align: center, $gap: 0.5rem);
+  }
+}

@@ -1,0 +1,24 @@
+.login {
+  &__top {
+    @include flex($justify: space-between, $align: center);
+  }
+
+  &__content {
+    border: 1px solid $color-gray;
+    padding: 2rem;
+    color: $color-black;
+  }
+}
+
+.form-check {
+  @include flex($justify: flex-start, $align: center);
+
+  &-label {
+    @include flex(
+      $justify: center,
+      $align: center,
+      $direction: row-reverse,
+      $gap: 1rem
+    );
+  }
+}

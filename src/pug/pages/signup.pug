@@ -1,0 +1,35 @@
+extends ../base/layout.pug
+
+block title 
+    title SignUp || Wine shop 
+block content
+    main 
+        +breadcrumbs(registerBreadcrumbs)
+        section.register.mb-5
+            .container
+                .register__top 
+                    +subtitle("Đăng kí")
+                    button(type="submit").btn.button.btn--black Đăng nhập
+                .register__content.mt-5 
+                    .heading Thông tin cá nhân 
+                    form.register__form(action="") 
+                        .mt-3.row
+                            +inputText({label:"Tên trước",name:"firstName",classLabel:"col-md-1",classInput:"col-md-11",isEdited:true})
+                        .mt-3.row
+                            +inputText({label:"Tên sau",name:"lastName",classLabel:"col-md-1",classInput:"col-md-11",isEdited:true})
+                        .mt-3.row
+                            +inputText({label:"Email",name:"email",classLabel:"col-md-1",classInput:"col-md-11",isEdited:true})
+                        .mt-3.row
+                            +inputText({label:"Password",name:"password",classLabel:"col-md-1",classInput:"col-md-11",isEdited:true})
+                        .my-3.row 
+                            +checkBox("Đăng kí nhận bản tin","remember","offset-sm-1 col-sm-10")
+                        .heading Thông tin đăng nhập 
+                        .mt-3.row
+                            +inputText({label:"Mật khẩu",name:"password",classLabel:"col-lg-1 col-md-2",classInput:"col-lg-11 col-md-10",isEdited:true})
+                        .mt-3.row
+                            +inputText({label:"Xác nhận mật khẩu",name:"password",classLabel:"col-lg-2 col-md-3",classInput:"col-lg-10 col-md-9",isEdited:true})
+                        .mb-5.mt-3.row 
+                            .offset-sm-2.col-sm-10 
+                                .register__cta  
+                                    button(type="submit").btn.button.btn--black.btn--small Gửi
+                                    button(type="submit").btn.button.btn--black.btn--small Quay lại

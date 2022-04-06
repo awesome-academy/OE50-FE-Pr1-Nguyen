@@ -52,6 +52,7 @@
       &::before {
         content: attr(data-title);
         @include absolute($top: 50%, $left: 5%);
+        font-size: calc($fs-xl - $fs-xs);
       }
     }
   }

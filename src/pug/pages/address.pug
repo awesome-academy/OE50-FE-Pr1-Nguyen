@@ -1,0 +1,67 @@
+extends ../base/layout.pug
+
+block title 
+    title Address || Wine shop 
+block content
+    main 
+        +breadcrumbs(addressBreadcrumbs)
+        section.address.mb-5
+            .container
+                +subtitle("Địa chỉ")
+                .row.pt-5 
+                    .col-lg-6
+                        .subheading Địa chỉ của bạn 
+                        each item in accountLists 
+                            form.mt-3(class = (item.isEdited ? "address__form" : "address__info"))
+                                .mb-4.row 
+                                    +inputText({label: "Tên", name: "lastName", classLabel: "col-md-3", classInput: "col-md-9", isEdited: item.isEdited, value: item.lastName})
+                                .mb-4.row 
+                                    +inputText({label: "Họ & tên đệm", name: "firstName", classLabel: "col-md-3", classInput: "col-md-9", isEdited: item.isEdited, value: item.firstName})
+                                .mb-4.row 
+                                    +inputText({label: "Công ty", name: "company", classLabel: "col-md-3", classInput: "col-md-9", isEdited: item.isEdited, value: item.company})
+                                .mb-4.row 
+                                    +inputText({label: "Địa chỉ", name: "address", classLabel: "col-md-3", classInput: "col-md-9", isEdited: item.isEdited, value: item.address})
+                                .mb-4.row 
+                                    +inputText({label: "Thành phố", name: "city", classLabel: "col-md-3", classInput: "col-md-9", isEdited: item.isEdited, value: item.city})
+                                .mb-4.row 
+                                    +inputText({label: "Quốc tịch", name: "country", classLabel: "col-md-3", classInput: "col-md-9", isEdited: item.isEdited, value: item.country})
+                                .mb-4.row 
+                                    +inputText({label: "Postal/Zip code", name: "code", classLabel: "col-md-3", classInput: "col-md-9", isEdited: item.isEdited, value: item.code})
+                                .mb-4.row 
+                                    +inputText({label: "Phone", name: "phone", classLabel: "col-md-3", classInput: "col-md-9", isEdited: item.isEdited, value: item.phone})
+                                if(item.isEdited)
+                                    .mb-4.row   
+                                        +checkBox("Đặt làm địa chỉ mặc định", "defaultAddress", "off-sm-1 col-sm-10")
+                                .mb-4.row 
+                                    if(item.isEdited)
+                                        .offset-sm-1.col-sm-10 
+                                            button(type="submit").btn.button.btn--blue Chỉnh sửa địa chỉ 
+                                            button(type="submit").btn.button.btn--black Xóa
+                                    else 
+                                        .offset-sm-8.col-sm-4 
+                                            a.address__link.address__link--blue(href="") Chỉnh sửa địa chỉ
+                    .col-lg-6 
+                        a.address__link.address__link--blue(href="") Thêm địa chỉ
+                        form.address__form.mt-3
+                            .mb-4.row 
+                                +inputText({label: "Tên", name: "lastName", classLabel: "col-md-3", classInput: "col-md-9", isEdited: true, value: "Giang"})
+                            .mb-4.row 
+                                +inputText({label: "Họ & tên đệm", name: "firstName", classLabel: "col-md-3", classInput: "col-md-9", isEdited: true, value: "Lê Anh"})
+                            .mb-4.row 
+                                +inputText({label: "Công ty", name: "company", classLabel: "col-md-3", classInput: "col-md-9", isEdited: true, value: "Cổ phần công nghệ DKT"})
+                            .mb-4.row 
+                                +inputText({label: "Địa chỉ", name: "address", classLabel: "col-md-3", classInput: "col-md-9", isEdited: true, value: "Tòa nhà Hà Nội Group,442 Đội Cấn,Ba Đình,Hà Nội"})
+                            .mb-4.row 
+                                +selectBox({label: "Thành phố", name: "city", options: cityList, isEdited: true})
+                            .mb-4.row 
+                                +selectBox({label: "Quốc tịch", name: "country", options: countryList, isEdited: true})
+                            .mb-4.row 
+                                +inputText({label: "Postal/Zip code", name: "code", classLabel: "col-md-3", classInput: "col-md-9", isEdited: true, value: "2300089"})
+                            .mb-4.row 
+                                +inputText({label: "Phone", name: "phone", classLabel: "col-md-3", classInput: "col-md-9", isEdited: true, value: "0974554928"})
+                            .mb-4.row   
+                                +checkBox("Đặt làm địa chỉ mặc định", "defaultAddress", "off-sm-1 col-sm-10")
+                            .mb-4.row 
+                                .offset-sm-1.col-sm-10 
+                                    button(type="submit").btn.button.btn--blue Cập nhật địa chỉ 
+                                    button(type="submit").btn.button.btn--black Thoát

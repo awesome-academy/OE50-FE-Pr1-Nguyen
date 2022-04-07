@@ -37,6 +37,16 @@
     }
   }
 
+  &--blue {
+    background-color: $color-blue;
+    color: $color-white;
+    text-transform: unset;
+
+    &:hover {
+      color: $color-yellow;
+    }
+  }
+
   &--arrow {
     @include relative;
 

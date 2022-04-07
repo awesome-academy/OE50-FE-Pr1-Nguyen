@@ -1,0 +1,18 @@
+.contact {
+  color: $color-black;
+
+  &__logo {
+    @include size($width: 150px);
+  }
+
+  &__info {
+    @include flex($justify: flex-start, $align: flex-start, $direction: column);
+    @include respond-to(desktop-and-down) {
+      @include flex($justify: center, $align: center);
+    }
+  }
+
+  &__textarea {
+    min-height: calc(10rem + 1rem) !important;
+  }
+}

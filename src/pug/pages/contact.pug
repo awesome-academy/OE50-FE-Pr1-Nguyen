@@ -1,0 +1,48 @@
+extends ../base/layout.pug
+
+block title 
+    title Contact || Wine shop 
+block content
+    main 
+        +breadcrumbs(contactBreadcrumbs)
+        section.contact.mb-5
+            .container
+                +subtitle("Liên hệ")
+                .row.pt-5 
+                    .col-lg-8 
+                        iframe(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d961552.1749708545!2d1.6081090530510742!3d48.26557252158054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd54a02933785731%3A0x6bfd3f96c747d9f7!2zUGjDoXA!5e0!3m2!1svi!2s!4v1649261733646!5m2!1svi!2s' width='100%' height='400' style='border: 0;' allowfullscreen='' loading='lazy' referrerpolicy='no-referrer-when-downgrade')
+                        form.pt-5(action="")
+                            .mb-3.row
+                                +inputText({label: "Your name", name: "name", classLabel: "col-md-2", classInput: "col-md-10", isEdited: true})
+                            .mb-3.row
+                                +inputText({label: "Your email", name: "email", classLabel: "col-md-2", classInput: "col-md-10", isEdited: true})
+                            .mb-3.row
+                                +inputText({label: "Subject", name: "subject", classLabel: "col-md-2", classInput: "col-md-10", isEdited: true})
+                            .mb-3.row
+                                .col-md-2
+                                    label.form-label(for='textarea') Your Message
+                                .col-md-10
+                                    textarea#textarea.form-control.contact__textarea(type='textarea')
+                            .mb-4.pt-3.row 
+                                .offset-md-2.col-md-10 
+                                    a.btn.button.btn--black Gửi 
+                    .col-lg-3
+                        .contact__info
+                            .contact__logo
+                                img(src="/assets/logoMenu.png" alt="logo")
+                            ul 
+                                li
+                                    i.fa.fa-location-arrow 
+                                    span.desc.ps-2 Tòa nhà Hà Nội group, 422 Đội Cấn,Ba Đình, Hà Nội
+                                li 
+                                    i.fa.fa-phone 
+                                    span.desc.ps-2 (04) 3786 8904
+                                li 
+                                    i.fa.fa-envelope 
+                                    span.desc.ps-2 support@milano.com
+                            .subheading.pt-3 Follow us :
+                            ul.social 
+                                each social in contactSocial
+                                    li.social__item 
+                                        a.social__link 
+                                            i(class= social.class)

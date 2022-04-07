@@ -15,11 +15,11 @@ block content
                     p.desc Nếu bạn có một tài khoản, xin vui lòng đăng nhập.
                     form.login__form(action="") 
                         .mt-3.row
-                            +inputText({label:"Email",name:"email",classLabel:"col-md-1",classInput:"col-md-11",isEdited: true})
+                            +inputText({label: "Email", name: "email", classLabel: "col-md-1", classInput: "col-md-11", isEdited: true})
                         .mt-3.row
-                            +inputText({label:"Password",name:"password",classLabel:"col-md-1",classInput:"col-md-11",isEdited:true})
+                            +inputText({label: "Password", name: "password", classLabel: "col-md-1", classInput: "col-md-11", isEdited: true})
                         .my-3.row 
-                            +checkBox("Quên mật khẩu","remember","offset-sm-1 col-sm-10")
+                            +checkBox("Quên mật khẩu", "remember", "offset-sm-1 col-sm-10")
                         .row 
                             .offset-sm-1.col-sm-10 
                                 button(type="submit").btn.button.btn--black Đăng nhập

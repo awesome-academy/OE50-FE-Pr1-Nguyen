@@ -26,13 +26,3 @@
     line-height: 10px;
   }
 }
-
-.address__link {
-  @include relative;
-  &::after {
-    content: '';
-    @include absolute($top: 100%, $left: 0);
-    @include size($width: $wf, $height: 1px);
-    background-color: $color-black;
-  }
-}

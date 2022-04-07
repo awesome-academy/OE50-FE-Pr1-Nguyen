@@ -1,7 +1,7 @@
 mixin cardItem(product)
     .product.text-center 
         .product__img
-            img.product__img(src=product.src , alt=product.alt)
+            img.product__img(src=product.src, alt=product.alt)
             .product__tag
                 span(class=product.class)=product.txt
         .product__more 
@@ -33,7 +33,7 @@ mixin cardNew(news)
 mixin cardItemList(product)
     .product-list 
         .product-list__img
-            img.product-list__img(src=product.src , alt=product.alt)
+            img.product-list__img(src=product.src, alt=product.alt)
             .product-list__tag
                 span(class=product.class)=product.txt
         .product-list__body   
@@ -53,7 +53,7 @@ mixin cardItemList(product)
 mixin cardNewsRelated(item) 
     article.news-card__item
         .news-card__img
-            img.news-card__img(src=item.src,alt=item.alt)
+            img.news-card__img(src=item.src, alt=item.alt)
         .news-card__body 
             .news-card__title=item.title
             .created-at 

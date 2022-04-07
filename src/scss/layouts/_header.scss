@@ -81,6 +81,10 @@
     padding-left: 10px;
     color: $color-white;
 
+    &--black {
+      color: $color-black;
+    }
+
     &--small {
       transform: scale(0.8);
     }

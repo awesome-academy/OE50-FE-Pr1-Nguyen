@@ -1,0 +1,38 @@
+.order {
+  &__top {
+    background-color: $color-gray;
+  }
+
+  &__content {
+    border: 1px solid $color-gray;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &__info {
+    color: $color-black;
+    padding: 2rem;
+    background-color: $color-gray;
+    @include respond-to(desktop-and-down) {
+      margin-top: 1rem;
+    }
+  }
+
+  &__desc {
+    margin-right: 1rem;
+  }
+
+  &__td {
+    line-height: 10px;
+  }
+}
+
+.address__link {
+  @include relative;
+  &::after {
+    content: '';
+    @include absolute($top: 100%, $left: 0);
+    @include size($width: $wf, $height: 1px);
+    background-color: $color-black;
+  }
+}

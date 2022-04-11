@@ -237,3 +237,58 @@
     font-style: italic;
   }
 }
+
+.popup {
+  @include absolute($top: 0, $left: 0, $zindex: 999);
+  @include size($width: $wf);
+  color: $color-black;
+  @include respond-to(desktop-and-down) {
+    display: none;
+  }
+
+  &__img {
+    height: 450px;
+    object-fit: contain;
+  }
+
+  &__cover {
+    @include absolute($top: 0, $left: 0);
+    @include size($width: $wf);
+    background-color: rgba($color: #000000, $alpha: 0.8);
+  }
+
+  &__wrapper {
+    @include absolute($top: 2%, $left: 20%);
+    @include size($width: 60%, $height: 450px);
+    background-color: #fff;
+    text-align: center;
+  }
+
+  &__check {
+    display: none;
+
+    &:checked ~ .popup__wrapper {
+      display: none;
+    }
+
+    &:checked ~ .popup__cover {
+      display: none;
+    }
+  }
+
+  &__intention {
+    @include flex($justify: center, $align: center, $direction: column);
+  }
+
+  &__close {
+    @include absolute($top: -8%, $left: 102%);
+    @include size($width: 5px);
+    color: #fff;
+    transform: scale(2);
+  }
+
+  &__input {
+    @include flex($justify: center, $align: initial, $wrap: wrap);
+    @include size($width: $wf, $height: auto);
+  }
+}

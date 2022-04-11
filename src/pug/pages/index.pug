@@ -37,6 +37,25 @@ block slider
             span.carousel-control-next-icon(aria-hidden='true' hidden)
             span.visually-hidden Next
 
+block popup 
+    form.popup
+        input#toggle.popup__check(type="checkbox")
+        label.popup__cover(for="toggle") 
+        .popup__wrapper 
+            label(for="toggle").popup__close 
+                i.fa.fa-close
+            .popup__content 
+                .row
+                    .col-md-5.popup__img 
+                        img.popup__img(src="/assets/popup.png" alt="s")
+                    .col-md-7.popup__intention.text-center.pe-5
+                        .heading Gửi Email 
+                        p.desc Đăng kí Email ngay hôm nay để nhận được thông tin vể sự kiện, các chương trình giảm giá của chúng tôi sớm nhất !
+                        .popup__input
+                            +inputText({name: "email",isEdited: true,value: "Email của bạn..."})
+                            button.btn.button.btn--black(type='submit') Gửi email
+                        +checkBox("Không hiển thị lại thông báo này","notice","offset-lg-1 col-lg-10 pt-5")
+
 block content
     main    
         section.intro 

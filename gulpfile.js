@@ -6,7 +6,7 @@ const { src, dest, parallel, watch, series } = require('gulp'),
 
 const FilesPath = {
   sassFiles: 'src/scss/*.scss',
-  jsFiles: 'js/*.js',
+  jsFiles: 'src/js/*.js',
   htmlFiles: 'src/pug/pages/**/*.pug',
 };
 const { sassFiles, jsFiles, htmlFiles } = FilesPath;
@@ -27,7 +27,7 @@ function htmlTask() {
 }
 
 function jsTask() {
-  return src(jsFiles).pipe(concat('all.js')).pipe(dest('dist/js'));
+  return src(jsFiles).pipe(dest('dist/js'));
 }
 
 function assetsTask() {

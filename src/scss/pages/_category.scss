@@ -33,7 +33,8 @@
   }
 
   &__list:checked ~ .category__product-list {
-    display: block;
+    @include flex($justify: flex-start, $align: center);
+    @include size($width: $wf);
   }
 
   &__list:not(:checked) ~ .category__product-list {
@@ -41,7 +42,8 @@
   }
 
   &__grid:checked ~ .category__product-grid {
-    display: block;
+    @include flex($justify: flex-start, $align: center);
+    @include size($width: $wf);
   }
 
   &__grid:not(:checked) ~ .category__product-grid {

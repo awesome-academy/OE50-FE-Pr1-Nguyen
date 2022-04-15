@@ -211,6 +211,10 @@
     }
   }
 
+  &__txt {
+    @include line($line: 3);
+  }
+
   &__more {
     @include flex($justify: flex-start, $align: center);
   }

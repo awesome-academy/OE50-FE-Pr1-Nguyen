@@ -1,0 +1,141 @@
+{
+  "product": [
+    {
+      "id": "1",
+      "src": "../assets/508c88894d0b4dccaa27670fb720938d.jpg",
+      "title": "Rượu vang đà đạt",
+      "price": "370.000 VND",
+      "sale": "450.000 VND",
+      "desc": "Một hợp chất có trong rượu vang được gọi là resveratro Một hợp chất có trong rượu vang được gọi là resveratro Một hợp chất có trong rượu vang được gọi là resveratro Một hợp chất có trong rượu vang được gọi là resveratro Một hợp chất có trong rượu vang được gọi là resveratro Một hợp chất có trong rượu vang được gọi là resveratro Một hợp chất có trong rượu vang được gọi là resveratro",
+      "category": "volka"
+    },
+    {
+      "id": "2",
+      "src": "../assets/1c222c22ff45469ebc47d2ce85873359.jpg",
+      "title": "Rượu vang đà đạt",
+      "price": "370.000 VND",
+      "sale": "450.000 VND",
+      "desc": "Một hợp chất có trong rượu vang được gọi là resveratro",
+      "category": "volka"
+    },
+    {
+      "id": "3",
+      "src": "../assets/1b5b2526a5203f1d35c679e111a8ef5f.jpg",
+      "title": "Rượu vang đà đạt",
+      "price": "370.000 VND",
+      "sale": "450.000 VND",
+      "desc": "Một hợp chất có trong rượu vang được gọi là resveratro",
+      "category": "remy"
+    },
+    {
+      "id": "4",
+      "class": "product__tag--new",
+      "txt": "sale",
+      "src": "../assets/508c88894d0b4dccaa27670fb720938d.jpg",
+      "title": "Rượu vang đà đạt",
+      "price": "370.000 VND",
+      "sale": "450.000 VND",
+      "desc": "Một hợp chất có trong rượu vang được gọi là resveratro",
+      "category": "volka"
+    },
+    {
+      "id": "5",
+      "class": "product__tag--new",
+      "txt": "sale",
+      "src": "../assets/508c88894d0b4dccaa27670fb720938d.jpg",
+      "title": "Rượu vang đà đạt",
+      "price": "370.000 VND",
+      "sale": "450.000 VND",
+      "desc": "Một hợp chất có trong rượu vang được gọi là resveratro",
+      "category": "volka"
+    },
+    {
+      "id": "6",
+      "class": "product__tag--new",
+      "txt": "sale",
+      "src": "../assets/508c88894d0b4dccaa27670fb720938d.jpg",
+      "title": "Rượu vang đà đạt",
+      "price": "370.000 VND",
+      "sale": "450.000 VND",
+      "desc": "Một hợp chất có trong rượu vang được gọi là resveratro",
+      "category": "volka"
+    },
+    {
+      "id": "7",
+      "class": "product__tag--new",
+      "txt": "sale",
+      "src": "../assets/508c88894d0b4dccaa27670fb720938d.jpg",
+      "title": "Rượu vang đà đạt",
+      "price": "370.000 VND",
+      "sale": "450.000 VND",
+      "desc": "Một hợp chất có trong rượu vang được gọi là resveratro",
+      "category": "volka"
+    },
+    {
+      "id": "8",
+      "class": "product__tag--new",
+      "txt": "sale",
+      "src": "../assets/508c88894d0b4dccaa27670fb720938d.jpg",
+      "title": "Rượu vang đà đạt",
+      "price": "370.000 VND",
+      "sale": "450.000 VND",
+      "desc": "Một hợp chất có trong rượu vang được gọi là resveratro",
+      "category": "whisky"
+    },
+    {
+      "id": "9",
+      "class": "product__tag--new",
+      "txt": "sale",
+      "src": "../assets/508c88894d0b4dccaa27670fb720938d.jpg",
+      "title": "Rượu vang đà đạt",
+      "price": "370.000 VND",
+      "sale": "450.000 VND",
+      "desc": "Một hợp chất có trong rượu vang được gọi là resveratro",
+      "category": "volka"
+    },
+    {
+      "id": "10",
+      "class": "product__tag--new",
+      "txt": "sale",
+      "src": "../assets/508c88894d0b4dccaa27670fb720938d.jpg",
+      "title": "Rượu vang đà đạt",
+      "price": "370.000 VND",
+      "sale": "450.000 VND",
+      "desc": "Một hợp chất có trong rượu vang được gọi là resveratro",
+      "category": "chivas"
+    },
+    {
+      "id": "11",
+      "class": "product__tag--new",
+      "txt": "sale",
+      "src": "../assets/508c88894d0b4dccaa27670fb720938d.jpg",
+      "title": "Rượu vang đà đạt",
+      "price": "370.000 VND",
+      "sale": "450.000 VND",
+      "desc": "Một hợp chất có trong rượu vang được gọi là resveratro",
+      "category": "chivas"
+    },
+    {
+      "id": "12",
+      "class": "product__tag--new",
+      "txt": "sale",
+      "src": "../assets/508c88894d0b4dccaa27670fb720938d.jpg",
+      "title": "Rượu vang đà đạt",
+      "price": "370.000 VND",
+      "sale": "450.000 VND",
+      "desc": "Một hợp chất có trong rượu vang được gọi là resveratro",
+      "category": "chivas"
+    }
+  ],
+
+  "menu": {
+    "foreignWine": {
+      "list": ["whisky", "chivas", "volka"],
+      "title": "Rượu ngoại"
+    },
+    "wine": {
+      "list": ["VangChile", "vangY"],
+      "title": "Rượu tây"
+    }
+  }
+}

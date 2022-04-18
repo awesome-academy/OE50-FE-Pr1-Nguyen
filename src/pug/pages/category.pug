@@ -20,13 +20,7 @@ block content
                                 aside
                                     .filter__category
                                         +subtitle("Danh sách sản phẩm")
-                                        nav
-                                            each item in sidebar
-                                                ul.filter__category-list.pt-3 
-                                                    a.nav__link.nav__link--black(href="#")=item.title
-                                                    each link in item.link
-                                                        li.filter__category-item
-                                                            a.filter__category-link(href="#")=link
+                                        nav.filter__nav.js-filter__nav
                                     .filer__compare
                                         +subtitle("So sánh sản phẩm")
                                         p.mb-2.desc Bạn chưa có sản phẩm nào để so sánh
@@ -46,13 +40,7 @@ block content
                             label.view__icon.view__grid(for='view__grid')
                                 i.fa.fa-table
                             +pagination(5)
-                            .category__product-list
-                                .row 
-                                    each product in categoryProduct
-                                        .col-12 
-                                            +cardItemList(product)
-                            .category__product-grid 
-                                .row 
-                                    each product in categoryProduct 
-                                        .col-lg-4.col-md-6.col-12 
-                                            +cardItem(product)
+                            .category__product-list.js-product-list.row
+                            .category__product-grid.js-product-grid.row 
+block js 
+    script(src="../js/category.js" type="module") 

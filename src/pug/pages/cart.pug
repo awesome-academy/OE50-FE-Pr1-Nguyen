@@ -14,22 +14,20 @@ block content
                             tr.table__thead-tr
                                 each item in cartTitle
                                     th.table__title=item
-                        tbody.table__tbody 
-                            each item in cartItem 
-                                tr.table__tr 
-                                    td.table__td(data-title="Ảnh")
-                                        img.table__img(src=item.img, alt="")
-                                    td.table__td(data-title="Tên Sản Phẩm")=item.name
-                                    td.table__td.table__price(data-title="Giá")=item.price 
-                                    td.table__td(data-title="Số lượng")=item.amount 
-                                    td.table__td.table__total(data-title="Tổng số")=item.totalMoney
-                                    td.table__td(data-title="Xóa") 
-                                        button.btn.button
-                                            i.fa.fa-trash
+                        tbody.table__tbody.cart__table-content
+                .row 
+                    .col 
+                        .cart-items Tổng số lượng: 
+                        .cart-total Tổng số tiền:      
                 .row 
                     .col 
                         nav.buttons
                             ul.buttons__list.pt-3
-                                each item in buttonsList
-                                    li.buttons__item 
-                                        a.btn.button.btn--black= item 
+                                li.buttons__item 
+                                    a.btn.button.btn--black  Tiếp tục mua hàng
+                                li.buttons__item 
+                                    a.cart-clear.btn.button.btn--black Xóa
+                                li.buttons__item 
+                                    a.cart-update.btn.button.btn--black Cập nhật
+block js 
+    script(src="../js/cart.js") 

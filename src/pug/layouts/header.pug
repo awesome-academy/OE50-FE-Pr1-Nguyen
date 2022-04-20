@@ -12,7 +12,11 @@ mixin header
                                 each item in headerUser
                                     li.header__item 
                                         a.header__link(href=item.href)=item.item
-                .search.col-6 
+                .cart-shopping.col-2.offset-2
+                    a(href="cart.html").cart-shopping__icon
+                        i.fa.fa-cart-plus(style="color: white")
+                        .cart-shopping__quantity
+                .search.col-2
                     form
                         input.search__input(type="text" name="" placeholder="Tim kiem o day ...")
                         label.search__icon( for ='search')

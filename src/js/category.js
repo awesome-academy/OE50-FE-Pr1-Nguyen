@@ -2,12 +2,14 @@ const listProduct = document.querySelector('.js-product-list');
 const gridProduct = document.querySelector('.js-product-grid');
 const menuCategory = document.querySelector('.js-filter__nav');
 const pagination = document.querySelector('.pagination');
+const cartList = document.querySelector('.cart__table');
+const cartQuantity = document.querySelector('.cart-shopping__quantity');
 let filterApplied = {};
 let menu = [];
 let products = [];
 let currentPage = 1;
 let totalProduct = 0;
-
+let cart = [];
 class Api {
   getProduct = async function (page = 1, limit = 9) {
     try {
@@ -82,6 +84,18 @@ class Api {
 }
 
 class View {
+  initialApp() {
+    cart = Storage.getCart();
+    this.renderCartQuantity();
+  }
+
+  //cart
+
+  renderCartQuantity() {
+    let totalQuantity = cart.reduce((total, item) => total + item.amount, 0);
+    cartQuantity.textContent = totalQuantity;
+  }
+
   getProductById(id) {
     return products.find((product) => product.id === id);
   }
@@ -97,7 +111,7 @@ class View {
                 <h2 class="product-list__title">${product.title}</h2>
                 <p class="product-list__price">${product.price}</p>
                 <p class="product-list__txt">${product.desc}</p>
-                <div class="product-list__more"> <a class="btn button btn--black" data-id=${product.id}>Add to card</a>
+                <div class="product-list__more"> <a class="bag-button btn button btn--black" data-id=${product.id}>Add to card</a>
                     <div class="product-list__status"> 
                         <div class="product__love"> <i class="fa fa-heart"></i>
                             <p class="product__txt">Yêu thích</p>
@@ -145,7 +159,7 @@ class View {
                                  >
                          </p>
                      </div>
-                    <a class="btn button btn--black">Add to card</a>
+                    <a class="bag-button btn button btn--black">Add to card</a>
                  </div>
           </div>
     
@@ -242,11 +256,43 @@ class View {
     this.renderProductsByPage(api.getProductByPage);
     this.renderProductsByCategoryPage(api.getProductByCategoryPage);
   };
+
+  addCartButton() {
+    const bagButton = [...document.querySelectorAll('.bag-button')];
+    bagButton.map((button) => {
+      const productId = button.dataset.id;
+      button.addEventListener('click', (e) => {
+        const inCart = Storage.getCart().find((item) => item.id === productId);
+        if (inCart) {
+          let tempItem = cart.find((item) => item.id === productId);
+          tempItem.amount += 1;
+          Storage.saveCart(cart);
+        } else {
+          const cartItem = { ...this.getProductById(productId), amount: 1 };
+          cart = [...cart, cartItem];
+          Storage.saveCart(cart);
+        }
+        this.renderCartQuantity();
+      });
+    });
+  }
+}
+class Storage {
+  static saveCart(cart) {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
+
+  static getCart() {
+    return localStorage.getItem('cart')
+      ? JSON.parse(localStorage.getItem('cart'))
+      : [];
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   const api = new Api();
   const view = new View();
+  view.initialApp();
 
   api
     .getProduct(1, 6)
@@ -255,6 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
       view.renderProductsByPage(api.getProductByPage);
     })
     .then(() => {
+      view.addCartButton();
       view.renderPagination(totalProduct);
     });
 

@@ -1,9 +1,13 @@
 const listProduct = document.querySelector('.js-product-list');
 const gridProduct = document.querySelector('.js-product-grid');
 const menuCategory = document.querySelector('.js-filter__nav');
+const pagination = document.querySelector('.pagination');
 let filterApplied = {};
 let menu = [];
 let products = [];
+let currentPage = 1;
+let totalProduct = 0;
+
 class Api {
   getProduct = async function (page = 1, limit = 9) {
     try {
@@ -13,23 +17,28 @@ class Api {
       const data = await res.json();
       if (!res.ok) throw new Error(res.statusText);
       products = data;
+      totalProduct = res.headers.get('X-Total-Count');
       return products;
     } catch (err) {
-      console.log(err.message);
+      alert(err.message);
     }
   };
 
   getProductByCategory = async function (category, page = 1, limit = 9) {
+    const view = new View();
     try {
       const res = await fetch(
         `http://localhost:3000/product?category=${category}&_page=${page}&_limit=${limit}`
       );
       const data = await res.json();
       if (!res.ok) throw new Error(res.statusText);
+      totalProduct = res.headers.get('X-Total-Count');
       products = data;
+      pagination.innerHTML = '';
+      view.renderPagination(totalProduct);
       return products;
     } catch (err) {
-      console.log(err);
+      alert(err.message);
     }
   };
 
@@ -41,12 +50,42 @@ class Api {
       menu = data;
       return menu;
     } catch (err) {
-      console.log(`Could not get menu: ${err}`);
+      alert(err.message);
+    }
+  };
+
+  getProductByPage = async function (page, limit) {
+    try {
+      const res = await fetch(
+        `http://localhost:3000/product?_page=${page}&_limit=${limit}`
+      );
+      const data = await res.json();
+      if (!res.ok) throw new Error(res.statusText);
+      products = data;
+    } catch (err) {
+      alert(err.message);
+    }
+  };
+
+  getProductByCategoryPage = async function (category, page, limit) {
+    try {
+      const res = await fetch(
+        `http://localhost:3000/product?category=${category}&_page=${page}&_limit=${limit}`
+      );
+      const data = await res.json();
+      if (!res.ok) throw new Error(res.statusText);
+      products = data;
+    } catch (err) {
+      alert(err.message);
     }
   };
 }
 
 class View {
+  getProductById(id) {
+    return products.find((product) => product.id === id);
+  }
+
   productList(product) {
     return `
     <div class="col-12" id=${product.id}>
@@ -120,6 +159,32 @@ class View {
     });
   }
 
+  renderProductsByPage = function (action) {
+    const paginationBtn = document.querySelectorAll('.page-link');
+    paginationBtn.forEach((btn) => {
+      btn.addEventListener('click', async (e) => {
+        await action(Number(btn.dataset.page), 6);
+        currentPage = btn.dataset.page;
+        listProduct.innerHTML = '';
+        gridProduct.innerHTML = '';
+        this.renderProduct(products);
+      });
+    });
+  };
+
+  renderProductsByCategoryPage = function (action) {
+    const paginationBtn = document.querySelectorAll('.page-link');
+    paginationBtn.forEach((btn) => {
+      btn.addEventListener('click', async (e) => {
+        await action(filterApplied, Number(btn.dataset.page), 6);
+        currentPage = btn.dataset.page;
+        listProduct.innerHTML = '';
+        gridProduct.innerHTML = '';
+        this.renderProduct(products);
+      });
+    });
+  };
+
   ///FILTER
 
   renderSidebar(menu) {
@@ -160,18 +225,42 @@ class View {
       });
     });
   };
+
+  //Pagination
+
+  renderPagination = function (total) {
+    const api = new Api();
+    let totalPage = Math.ceil(total / 6);
+    for (let i = 1; i <= totalPage; i++) {
+      let pageHTML = `
+      <li class="page-item"> 
+        <a class="page-link" data-page=${i}>${i}</a>
+      </li>
+      `;
+      pagination.insertAdjacentHTML('beforeend', pageHTML);
+    }
+    this.renderProductsByPage(api.getProductByPage);
+    this.renderProductsByCategoryPage(api.getProductByCategoryPage);
+  };
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   const api = new Api();
   const view = new View();
 
-  api.getProduct(1, 9).then((products) => {
-    view.renderProduct(products);
-  });
+  api
+    .getProduct(1, 6)
+    .then((products) => {
+      view.renderProduct(products);
+      view.renderProductsByPage(api.getProductByPage);
+    })
+    .then(() => {
+      view.renderPagination(totalProduct);
+    });
 
   api.getSidebar().then((menu) => {
     view.renderSidebar(menu);
     view.renderProductsByCategory(api.getProductByCategory);
+    view.renderProductsByPage(api.getProductByPage);
   });
 });

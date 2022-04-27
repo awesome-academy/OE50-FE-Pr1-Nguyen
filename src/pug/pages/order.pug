@@ -8,6 +8,17 @@ block content
         section.order.mb-5
             .container
                 +subtitle("Đơn hàng")
+                .row 
+                    .card1
+                        ul#progressbar.text-center
+                            li.active.step0
+                            li.step0.active 
+                            li.step0.active
+                            li.step0
+                            .content
+                                h6 Giỏ hàng
+                                h6 Thông tin
+                                h6 Xác nhận thông tin
                 .row.mt-5
                     .col-lg-8.order__content
                         .order__top.p-5
@@ -20,23 +31,11 @@ block content
                                 tr.table__thead-tr
                                     each item in orderTableTitle
                                         th.table__title=item
-                            tbody.table__tbody 
-                                each item in orderTableItem 
-                                    tr.table__tr 
-                                        td.table__td.order__td(data-title="STT")=item.stt
-                                        td.table__td.order__td(data-title="Mã hóa đơn/ngày mua hàng")
-                                            p=`${item.name} - ${item.date}`
-                                            span=item.time
-                                        td.table__td.order__td(data-title="Kho nhận hàng")=item.stock 
-                                        td.table__td.order__td(data-title="Số sp")=item.amount 
-                                        td.table__td.order__td(data-title="Tổng tiền")=item.totalMoney
-                                        td.table__td.order__td.text-capitalize(data-title="Tình trạng")=item.status
-                                        td.table__td.order__td.text-capitalize(data-title="Thao tác") 
-                                            a(href="") Chi tiết 
+                            tbody.table__tbody.order__table-content
                     .col-lg-3
                         .order__info
                             .subheading Thông tin khách hàng
-                            ul.mb-3
+                            ul.mb-3.order__info-content
                                 li
                                     i.fa.fa-user 
                                     span.desc.ps-2 GiangLe 
@@ -49,3 +48,11 @@ block content
                                     i.fa.fa-phone 
                                     span.desc.ps-2 (04) 3786 8904
                             a.address__link(href="") Chi tiết địa chỉ
+                .row
+                    .col 
+                        nav.buttons
+                            ul.buttons__list.pt-3
+                                li.buttons__item 
+                                    a.btn.button.btn--black.order-back-home back to home
+block js 
+    script(src="../js/confirm.js") 

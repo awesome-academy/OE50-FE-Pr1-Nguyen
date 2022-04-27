@@ -2,6 +2,62 @@
   color: $color-black;
 }
 
+.card1 {
+  @include flex($justify: center, $align: center);
+}
+
+#progressbar {
+  @include flex($justify: center, $align: center, $gap: 10rem);
+  position: relative;
+  color: red;
+
+  & li {
+    position: relative;
+    &::before {
+      @include relative;
+      @include size($width: 30px);
+      line-height: 30px;
+      display: block;
+      font-size: 20px;
+      background: #fff;
+      border: 2px solid #e53935;
+      border-radius: 50%;
+      margin: auto;
+    }
+
+    &:nth-child(4)::before {
+      @include size($width: 40px);
+    }
+
+    &::after {
+      content: '';
+      @include absolute($top: 15px, $left: 0, $zindex: -1);
+      @include size($width: 700%, $height: 2px);
+      background: #bdbdbd;
+    }
+
+    &.active::after {
+      background: #e53935;
+    }
+
+    &.active::before {
+      background: #e53935;
+      font-family: FontAwesome;
+      content: '\f00c';
+    }
+  }
+
+  & .step0::before {
+    content: '';
+    color: $color-white;
+  }
+
+  & .content {
+    @include absolute($top: 100%, $left: 0);
+    @include flex($justify: center, $align: center, $gap: 8rem);
+  }
+}
+
 .table {
   border: 1px solid $color-gray;
 

@@ -8,47 +8,61 @@ block content
         section.address.mb-5
             .container
                 +subtitle("Địa chỉ")
-                .row.pt-5 
+                .row 
+                    .card1
+                        ul#progressbar.text-center
+                            li.active.step0
+                            li.step0.active
+                            li.step0
+                            li.step0
+                            .content
+                                h6 Giỏ hàng
+                                h6 Thông tin
+                                h6 Xác nhận thông tin
+                .row.pt-5
                     .col-lg-6
                         .subheading Địa chỉ của bạn 
-                        each item in accountLists 
-                            form.mt-3(class = (item.isEdited ? "address__form" : "address__info"))
-                                .mb-4.row 
-                                    +inputText({label: "Tên", name: "lastName", classLabel: "col-md-3", classInput: "col-md-9", isEdited: item.isEdited, value: item.lastName})
-                                .mb-4.row 
-                                    +inputText({label: "Họ & tên đệm", name: "firstName", classLabel: "col-md-3", classInput: "col-md-9", isEdited: item.isEdited, value: item.firstName})
-                                .mb-4.row 
-                                    +inputText({label: "Công ty", name: "company", classLabel: "col-md-3", classInput: "col-md-9", isEdited: item.isEdited, value: item.company})
-                                .mb-4.row 
-                                    +inputText({label: "Địa chỉ", name: "address", classLabel: "col-md-3", classInput: "col-md-9", isEdited: item.isEdited, value: item.address})
-                                .mb-4.row 
-                                    +inputText({label: "Thành phố", name: "city", classLabel: "col-md-3", classInput: "col-md-9", isEdited: item.isEdited, value: item.city})
-                                .mb-4.row 
-                                    +inputText({label: "Quốc tịch", name: "country", classLabel: "col-md-3", classInput: "col-md-9", isEdited: item.isEdited, value: item.country})
-                                .mb-4.row 
-                                    +inputText({label: "Postal/Zip code", name: "code", classLabel: "col-md-3", classInput: "col-md-9", isEdited: item.isEdited, value: item.code})
-                                .mb-4.row 
-                                    +inputText({label: "Phone", name: "phone", classLabel: "col-md-3", classInput: "col-md-9", isEdited: item.isEdited, value: item.phone})
-                                if(item.isEdited)
-                                    .mb-4.row   
-                                        +checkBox("Đặt làm địa chỉ mặc định", "defaultAddress", "off-sm-1 col-sm-10")
-                                .mb-4.row 
-                                    if(item.isEdited)
-                                        .offset-sm-1.col-sm-10 
-                                            button(type="submit").btn.button.btn--blue Chỉnh sửa địa chỉ 
-                                            button(type="submit").btn.button.btn--black Xóa
-                                    else 
-                                        .offset-sm-8.col-sm-4 
-                                            a.address__link.address__link--blue(href="") Chỉnh sửa địa chỉ
+                        form.mt-3.address__info.address-default
+                        .address-list
+
+                        //- each item in accountLists 
+                        //-     form.mt-3(class = (item.isEdited ? "address__form" : "address__info address-exist"))
+                        //-         .mb-4.row 
+                        //-             +inputText({label: "Tên", name: "lastName", classLabel: "col-md-3", classInput: "col-md-9", isEdited: item.isEdited, value: item.lastName})
+                        //-         .mb-4.row 
+                        //-             +inputText({label: "Họ & tên đệm", name: "firstName", classLabel: "col-md-3", classInput: "col-md-9", isEdited: item.isEdited, value: item.firstName})
+                        //-         .mb-4.row 
+                        //-             +inputText({label: "Công ty", name: "company", classLabel: "col-md-3", classInput: "col-md-9", isEdited: item.isEdited, value: item.company})
+                        //-         .mb-4.row 
+                        //-             +inputText({label: "Địa chỉ", name: "address", classLabel: "col-md-3", classInput: "col-md-9", isEdited: item.isEdited, value: item.address})
+                        //-         .mb-4.row 
+                        //-             +inputText({label: "Thành phố", name: "city", classLabel: "col-md-3", classInput: "col-md-9", isEdited: item.isEdited, value: item.city})
+                        //-         .mb-4.row 
+                        //-             +inputText({label: "Quốc tịch", name: "country", classLabel: "col-md-3", classInput: "col-md-9", isEdited: item.isEdited, value: item.country})
+                        //-         .mb-4.row 
+                        //-             +inputText({label: "Postal/Zip code", name: "code", classLabel: "col-md-3", classInput: "col-md-9", isEdited: item.isEdited, value: item.code})
+                        //-         .mb-4.row 
+                        //-             +inputText({label: "Phone", name: "phone", classLabel: "col-md-3", classInput: "col-md-9", isEdited: item.isEdited, value: item.phone})
+                        //-         if(item.isEdited)
+                        //-             .mb-4.row   
+                        //-                 +checkBox("Đặt làm địa chỉ mặc định", "defaultAddress", "off-sm-1 col-sm-10")
+                        //-         .mb-4.row 
+                        //-             if(item.isEdited)
+                        //-                 .offset-sm-1.col-sm-10 
+                        //-                     button(type="submit").btn.button.btn--blue Chỉnh sửa địa chỉ 
+                        //-                     button(type="submit").btn.button.btn--black Xóa
+                        //-             else 
+                        //-                 .offset-sm-8.col-sm-4 
+                        //-                     a.address__link.address__link--blue(href="") Chỉnh sửa địa chỉ
                     .col-lg-6 
-                        a.address__link.address__link--blue(href="") Thêm địa chỉ
-                        form.address__form.mt-3
+                        a.address__link.address__link--blue.address__input(href="") Thêm địa chỉ
+                        form.address__form.address__form-input.mt-3
                             .mb-4.row 
-                                +inputText({label: "Tên", name: "lastName", classLabel: "col-md-3", classInput: "col-md-9", isEdited: true, value: "Giang"})
+                                +inputText({label: "Tên", name: "lastName", classLabel: "col-md-3", classInput: "col-md-9", isEdited: true, value: ""})
                             .mb-4.row 
-                                +inputText({label: "Họ & tên đệm", name: "firstName", classLabel: "col-md-3", classInput: "col-md-9", isEdited: true, value: "Lê Anh"})
+                                +inputText({label: "Họ & tên đệm", name: "firstName", classLabel: "col-md-3", classInput: "col-md-9 inputName", isEdited: true, value: "Lê Anh"})
                             .mb-4.row 
-                                +inputText({label: "Công ty", name: "company", classLabel: "col-md-3", classInput: "col-md-9", isEdited: true, value: "Cổ phần công nghệ DKT"})
+                                +inputText({label: "Công ty", name: "company", classLabel: "col-md-3", classInput: "col-md-9 ", isEdited: true, value: "Cổ phần công nghệ DKT"})
                             .mb-4.row 
                                 +inputText({label: "Địa chỉ", name: "address", classLabel: "col-md-3", classInput: "col-md-9", isEdited: true, value: "Tòa nhà Hà Nội Group,442 Đội Cấn,Ba Đình,Hà Nội"})
                             .mb-4.row 
@@ -63,5 +77,20 @@ block content
                                 +checkBox("Đặt làm địa chỉ mặc định", "defaultAddress", "off-sm-1 col-sm-10")
                             .mb-4.row 
                                 .offset-sm-1.col-sm-10 
-                                    button(type="submit").btn.button.btn--blue Cập nhật địa chỉ 
+                                    button(type="button").btn.button.btn--blue.btn-insert.address__input.add-address Cập nhật địa chỉ 
                                     button(type="submit").btn.button.btn--black Thoát
+                .row 
+                    .checkout-cartlist
+                        .checkout-sum
+                        .checkout-btn
+                        .checkout-total
+                .row
+                    .col 
+                        nav.buttons
+                            ul.buttons__list.pt-3
+                                li.buttons__item 
+                                    a.btn.button.btn--black.prev(href="cart.html")   Back
+                                li.buttons__item 
+                                    a.btn.button.btn--black.checkout-btn-btn.next-button Confirm
+block js 
+    script(src="../js/checkout.js") 

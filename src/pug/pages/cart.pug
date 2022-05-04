@@ -7,27 +7,40 @@ block content
         +breadcrumbs(cartBreadcrumbs)
         section.cart 
             .container
-                +subtitle("Giỏ hàng")
-                .table-responsive.cart__table.pt-5
-                    table.table.bg-light.text-center
-                        thead.table__thead 
-                            tr.table__thead-tr
-                                each item in cartTitle
-                                    th.table__title=item
-                        tbody.table__tbody.cart__table-content
+                +subtitle("Giỏ hàng") 
                 .row 
-                    .col 
-                        .cart-items Tổng số lượng: 
-                        .cart-total Tổng số tiền:      
-                .row 
-                    .col 
-                        nav.buttons
-                            ul.buttons__list.pt-3
-                                li.buttons__item 
-                                    a.btn.button.btn--black  Tiếp tục mua hàng
-                                li.buttons__item 
-                                    a.cart-clear.btn.button.btn--black Xóa
-                                li.buttons__item 
-                                    a.cart-update.btn.button.btn--black Cập nhật
+                    .card1
+                        ul#progressbar.text-center
+                            li.active.step0
+                            li.step0
+                            li.step0
+                            li.step0
+                            .content
+                                h6 Giỏ hàng
+                                h6 Thông tin
+                                h6 Xác nhận thông tin
+                    .table-responsive.cart__table.pt-5
+                        table.table.bg-light.text-center
+                            thead.table__thead 
+                                tr.table__thead-tr
+                                    each item in cartTitle
+                                        th.table__title=item
+                            tbody.table__tbody.cart__table-content
+                    .row 
+                        .col 
+                            .cart-items Tổng số lượng: 
+                            .cart-total Tổng số tiền:      
+                    .row 
+                        .col 
+                            nav.buttons
+                                ul.buttons__list.pt-3
+                                    li.buttons__item 
+                                        a.btn.button.btn--black.prev(href="category.html")   Tiếp tục mua hàng
+                                    li.buttons__item 
+                                        a.cart-clear.btn.button.btn--black Xóa
+                                    li.buttons__item 
+                                        a.cart-update.btn.button.btn--black Cập nhật
+                                    li.buttons__item 
+                                        a.cart-update.btn.button.btn--black.next-button(href="address.html") Thanh toán
 block js 
     script(src="../js/cart.js") 

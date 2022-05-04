@@ -21,3 +21,11 @@
     }
   }
 }
+
+.checkout-cartitem {
+  @include flex($justify: flex-start, $align: center);
+  &__img {
+    @include size($width: 100px);
+    object-fit: contain;
+  }
+}

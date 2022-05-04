@@ -127,14 +127,178 @@
       "category": "chivas"
     }
   ],
-
+  "order": [
+    {
+      "cart": [
+        {
+          "id": "1",
+          "src": "../assets/508c88894d0b4dccaa27670fb720938d.jpg",
+          "title": "Rượu vang đà đạt",
+          "price": "370000",
+          "sale": "450000",
+          "desc": "Một hợp chất có trong rượu vang được gọi là resveratro Một hợp chất có trong rượu vang được gọi là resveratro Một hợp chất có trong rượu vang được gọi là resveratro Một hợp chất có trong rượu vang được gọi là resveratro Một hợp chất có trong rượu vang được gọi là resveratro Một hợp chất có trong rượu vang được gọi là resveratro Một hợp chất có trong rượu vang được gọi là resveratro",
+          "category": "volka",
+          "amount": 1
+        }
+      ],
+      "defaultAddress": {
+        "id": "1",
+        "name": "Nguyen",
+        "lastName": "Le Trong",
+        "addr": "Giap bat",
+        "city": "Ha Noi",
+        "nation": "Viet Nam",
+        "zipcode": "10000",
+        "phone": "039383339",
+        "isDefault": "true"
+      },
+      "id": 4
+    },
+    {
+      "cart": [
+        {
+          "id": "1",
+          "src": "../assets/508c88894d0b4dccaa27670fb720938d.jpg",
+          "title": "Rượu vang đà đạt",
+          "price": "370000",
+          "sale": "450000",
+          "desc": "Một hợp chất có trong rượu vang được gọi là resveratro Một hợp chất có trong rượu vang được gọi là resveratro Một hợp chất có trong rượu vang được gọi là resveratro Một hợp chất có trong rượu vang được gọi là resveratro Một hợp chất có trong rượu vang được gọi là resveratro Một hợp chất có trong rượu vang được gọi là resveratro Một hợp chất có trong rượu vang được gọi là resveratro",
+          "category": "volka",
+          "amount": 1
+        }
+      ],
+      "id": 5
+    },
+    {
+      "cart": [
+        {
+          "id": "1",
+          "src": "../assets/508c88894d0b4dccaa27670fb720938d.jpg",
+          "title": "Rượu vang đà đạt",
+          "price": "370000",
+          "sale": "450000",
+          "desc": "Một hợp chất có trong rượu vang được gọi là resveratro Một hợp chất có trong rượu vang được gọi là resveratro Một hợp chất có trong rượu vang được gọi là resveratro Một hợp chất có trong rượu vang được gọi là resveratro Một hợp chất có trong rượu vang được gọi là resveratro Một hợp chất có trong rượu vang được gọi là resveratro Một hợp chất có trong rượu vang được gọi là resveratro",
+          "category": "volka",
+          "amount": 1
+        }
+      ],
+      "defaultAddress": {
+        "isDefault": "true",
+        "name": "trung",
+        "lastName": "LÊ TRỌNG",
+        "id": "QZ17EO-"
+      },
+      "id": 6
+    },
+    {
+      "cart": [
+        {
+          "id": "1",
+          "src": "../assets/508c88894d0b4dccaa27670fb720938d.jpg",
+          "title": "Rượu vang đà đạt",
+          "price": "370000",
+          "sale": "450000",
+          "desc": "Một hợp chất có trong rượu vang được gọi là resveratro",
+          "category": "volka",
+          "amount": 4
+        },
+        {
+          "id": "2",
+          "src": "../assets/1c222c22ff45469ebc47d2ce85873359.jpg",
+          "title": "Rượu vang đà đạt",
+          "price": "370000",
+          "sale": "450000",
+          "desc": "Một hợp chất có trong rượu vang được gọi là resveratro",
+          "category": "volka",
+          "amount": 3
+        },
+        {
+          "id": "3",
+          "src": "../assets/1b5b2526a5203f1d35c679e111a8ef5f.jpg",
+          "title": "Rượu vang đà đạt",
+          "price": "370000",
+          "sale": "450000",
+          "desc": "Một hợp chất có trong rượu vang được gọi là resveratro",
+          "category": "remy",
+          "amount": 2
+        }
+      ],
+      "defaultAddress": {
+        "isDefault": "true",
+        "name": "mai",
+        "lastName": "Lê Anh",
+        "id": "MBu-iIp"
+      },
+      "id": 7
+    }
+  ],
+  "address": [
+    {
+      "id": "1",
+      "name": "Nguyen",
+      "lastName": "Le Trong",
+      "addr": "Giap bat",
+      "city": "Ha Noi",
+      "nation": "Viet Nam",
+      "zipcode": "10000",
+      "phone": "039383339",
+      "isDefault": "fault"
+    },
+    {
+      "id": "2",
+      "name": "hy",
+      "lastName": "Le Trong",
+      "addr": "Kim Dong",
+      "city": "Ha Noi",
+      "nation": "Viet Nam",
+      "zipcode": "10000",
+      "phone": "039383339",
+      "isDefault": "fault"
+    },
+    {
+      "name": "Nguyen",
+      "lastName": "Le Trong",
+      "addr": "KTX KTQD",
+      "city": "Sai gon",
+      "nation": "Viet Nam",
+      "zipcode": "10000",
+      "phone": "039383339",
+      "isDefault": "fault",
+      "id": "-pKAAin"
+    },
+    {
+      "isDefault": "fault",
+      "name": "Nguyên",
+      "lastName": "LÊ TRỌNG",
+      "id": "rcBNnZh"
+    },
+    {
+      "isDefault": "fault",
+      "name": "trung",
+      "lastName": "LÊ TRỌNG",
+      "id": "QZ17EO-"
+    },
+    {
+      "isDefault": "true",
+      "name": "mai",
+      "lastName": "Lê Anh",
+      "id": "MBu-iIp"
+    }
+  ],
   "menu": {
     "foreignWine": {
-      "list": ["whisky", "chivas", "volka"],
+      "list": [
+        "whisky",
+        "chivas",
+        "volka"
+      ],
       "title": "Rượu ngoại"
     },
     "wine": {
-      "list": ["VangChile", "vangY"],
+      "list": [
+        "VangChile",
+        "vangY"
+      ],
       "title": "Rượu tây"
     }
   }
